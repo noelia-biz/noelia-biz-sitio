@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>noelia.biz · Brand OS v2 — June 2026</title>
+<meta name="description" content="The operating system for creating noelia.biz materials. Built for humans to use, structured for AIs to execute.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='8' y='8' width='48' height='48' rx='10' fill='%23EDDF2D'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%232132BD'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "noelia.biz",
+  "url": "https://noelia.biz",
+  "description": "Brand reputation and GEO strategist. Strategy, content and reputation layer that makes AI engines represent and cite brands well.",
+  "founder": {"@type": "Person", "name": "Noelia"},
+  "address": {"@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR"},
+  "knowsAbout": ["Generative Engine Optimization","AI brand reputation","Machine-legible branding","Citation gap","Semantic trust"],
+  "availableLanguage": ["en","fr","es"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=Manrope:wght@300..800&family=Allison&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =============================================
+   TOKENS
+   ============================================= */
+:root {
+  --ink:    #111111;
+  --paper:  #FFFFFF;
+  --blue:   #2132BD;
+  --yellow: #EDDF2D;
+  --grey-9: #1a1a1a;
+  --grey-7: #404040;
+  --grey-5: #6b6b6b;
+  --grey-3: #a8a8a8;
+  --grey-1: #e8e8e8;
+  --grey-0: #f5f5f5;
+  --display: 'Fraunces', Georgia, serif;
+  --body:    'Manrope', system-ui, sans-serif;
+  --mono:    'JetBrains Mono', SF Mono, Menlo, monospace;
+  --script:  'Allison', cursive;
+  --sidebar-w: 220px;
+  --content-max: 760px;
+}
+
+/* =============================================
+   RESET + BASE
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--yellow); color: var(--ink); }
+
+/* =============================================
+   TOP BAR
+   ============================================= */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 52px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  border-bottom: 1px solid #2a2a2a;
+}
+.topbar-logo { display: flex; align-items: center; text-decoration: none; }
+.topbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.topbar-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--grey-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.topbar-ver {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--blue);
+  padding: 2px 8px;
+  letter-spacing: 0.04em;
+}
+.topbar-top {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grey-3);
+  text-decoration: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  transition: color 0.15s, border-color 0.15s;
+  line-height: 1;
+}
+.topbar-top:hover {
+  color: var(--paper);
+  border-color: var(--grey-5);
+}
+
+/* =============================================
+   LAYOUT
+   ============================================= */
+.layout {
+  display: flex;
+  padding-top: 52px;
+  min-height: 100vh;
+}
+
+/* =============================================
+   SIDEBAR
+   ============================================= */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  position: sticky;
+  top: 52px;
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+  border-right: 1px solid var(--grey-1);
+  padding: 28px 0 40px 0;
+  background: var(--paper);
+  scrollbar-width: thin;
+  scrollbar-color: var(--grey-1) transparent;
+}
+
+.sidebar-group {
+  margin-bottom: 24px;
+}
+.sidebar-group-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--grey-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0 20px 8px 20px;
+  display: block;
+}
+.sidebar a {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--grey-5);
+  text-decoration: none;
+  padding: 5px 20px;
+  letter-spacing: 0.01em;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1.4;
+}
+.sidebar a:hover {
+  color: var(--ink);
+  background: var(--grey-0);
+}
+.sidebar a.active {
+  color: var(--blue);
+  font-weight: 600;
+}
+.sidebar a .num {
+  color: var(--grey-3);
+  margin-right: 6px;
+}
+.sidebar a.active .num { color: var(--blue); }
+
+/* =============================================
+   CONTENT
+   ============================================= */
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 0 40px 120px 60px;
+}
+
+/* =============================================
+   HERO
+   ============================================= */
+.hero {
+  padding: 72px 0 60px 0;
+  max-width: var(--content-max);
+  border-bottom: 1px solid var(--grey-1);
+  margin-bottom: 80px;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+/* .hero-title — replaced by .nb-logo system */
+.hero-title .dot { color: #2132BD; }
+/* .hero-title .biz — replaced by .nb-logo system */
+.hero-declaration {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 24, 'wght' 400;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--grey-7);
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+.hero-body {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--grey-7);
+  max-width: 560px;
+}
+.hero-body strong { color: var(--ink); font-weight: 600; }
+.hero-sig {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-sig .sig-text {
+  font-family: var(--script);
+  font-size: 46px;
+  color: var(--blue);
+  line-height: 1;
+}
+.hero-sig .sig-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--grey-5);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+/* =============================================
+   SECTION
+   ============================================= */
+.section {
+  max-width: var(--content-max);
+  margin-bottom: 80px;
+  scroll-margin-top: 72px;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--grey-3);
+  letter-spacing: 0.06em;
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.section h2 {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 144, 'wght' 300;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--grey-1);
+  margin-bottom: 80px;
+}
+
+/* =============================================
+   BLOCKS (What is / How to use / Sample)
+   ============================================= */
+.block {
+  margin-bottom: 24px;
+}
+.block-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+.block p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--grey-9);
+  margin-bottom: 10px;
+  max-width: 640px;
+}
+.block p:last-child { margin-bottom: 0; }
+.block p strong { font-weight: 600; color: var(--ink); }
+.block p em { font-style: italic; }
+
+.block ul, .block ol {
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+.block li {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--grey-9);
+  margin-bottom: 5px;
+}
+.block li strong { font-weight: 600; color: var(--ink); }
+
+/* Sample block */
+.sample {
+  background: var(--grey-0);
+  border-left: 2.5px solid var(--blue);
+  padding: 16px 20px;
+  margin-top: 8px;
+  border-radius: 0 4px 4px 0;
+}
+.sample-quote {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 24, 'wght' 400;
+  font-style: italic;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.sample p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--grey-7);
+  margin-bottom: 6px;
+}
+.sample p:last-child { margin-bottom: 0; }
+
+/* =============================================
+   CALLOUT
+   ============================================= */
+.callout {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  margin: 24px 0;
+  border-radius: 4px;
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 36, 'wght' 500;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: var(--content-max);
+}
+.callout em { font-style: italic; }
+.callout .hl { background: var(--yellow); color: var(--ink); padding: 0 6px; border-radius: 2px; }
+.callout .sig {
+  font-family: var(--script);
+  font-size: 26px;
+  color: var(--yellow);
+  display: block;
+  margin-top: 16px;
+  line-height: 1;
+}
+
+/* =============================================
+   TABLES
+   ============================================= */
+.table-wrap { overflow-x: auto; margin: 12px 0; max-width: var(--content-max); }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+th {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 8px 12px 8px 0;
+  border-bottom: 1.5px solid var(--ink);
+}
+td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--grey-1);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--grey-9);
+}
+td strong { color: var(--ink); font-weight: 600; }
+.mono { font-family: var(--mono); font-size: 12px; color: var(--ink); }
+
+/* =============================================
+   KV LIST
+   ============================================= */
+.kv {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0 16px;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 8px 0;
+}
+.kv .k {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--blue);
+  padding-top: 3px;
+}
+.kv .v { color: var(--ink); }
+
+/* =============================================
+   HIGHLIGHT
+   ============================================= */
+.hl { background: var(--yellow); padding: 0 3px; border-radius: 2px; }
+
+/* =============================================
+   COLOR SWATCHES
+   ============================================= */
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: var(--content-max);
+  margin: 12px 0;
+}
+.swatch {
+  border: 1px solid var(--grey-1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.swatch-chip {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 14px;
+}
+.swatch-chip .name {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 36, 'wght' 600;
+  font-size: 22px;
+  line-height: 1;
+}
+.swatch-info {
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--grey-7);
+}
+.swatch-info .row { display: flex; justify-content: space-between; }
+.swatch-info .row span:first-child { color: var(--blue); }
+.swatch-info .row span:last-child { color: var(--ink); }
+
+/* =============================================
+   TYPE SAMPLES
+   ============================================= */
+.type-block {
+  border-top: 1px solid var(--grey-1);
+  padding: 16px 0;
+  margin-bottom: 4px;
+}
+.type-display {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 144, 'wght' 300;
+  font-size: 42px;
+  line-height: 0.97;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.type-body { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--grey-9); margin-bottom: 8px; }
+.type-mono { font-family: var(--mono); font-size: 13px; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 8px; }
+.type-script { font-family: var(--script); font-size: 34px; color: var(--blue); line-height: 1; margin-bottom: 8px; }
+.type-meta { font-family: var(--mono); font-size: 10px; color: var(--grey-3); letter-spacing: 0.04em; }
+.type-why { font-size: 13.5px; line-height: 1.6; color: var(--grey-7); max-width: 560px; margin-bottom: 4px; }
+
+/* =============================================
+   LOGO GRID
+   ============================================= */
+.logo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: var(--content-max);
+  margin: 12px 0;
+}
+.logo-tile {
+  border-radius: 4px;
+  overflow: hidden;
+}
+.logo-tile-inner {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+.logo-tile-inner img {
+  max-width: 100%;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+}
+.logo-tile-caption {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--grey-5);
+  padding: 6px 12px 10px 12px;
+  letter-spacing: 0.02em;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.logo-tile.on-paper { background: #fff; border: 1px solid var(--grey-1); }
+.logo-tile.on-ink { background: #111; }
+.logo-tile.on-ink .logo-tile-caption { color: #888; border-top-color: rgba(255,255,255,0.08); }
+.logo-tile.on-blue { background: #2132BD; }
+.logo-tile.on-blue .logo-tile-caption { color: rgba(255,255,255,0.6); border-top-color: rgba(255,255,255,0.12); }
+.logo-tile.on-yellow { background: #EDDF2D; }
+.logo-tile.on-dark { background: #111; }
+.logo-tile.on-dark .logo-tile-caption { color: #888; border-top-color: rgba(255,255,255,0.08); }
+.logo-tile.on-neutral { background: var(--grey-0); border: 1px solid var(--grey-1); }
+
+/* =============================================
+   DO/DON'T
+   ============================================= */
+.do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: var(--content-max);
+  margin: 12px 0;
+}
+.do-col, .dont-col {
+  border-radius: 4px;
+  padding: 16px 18px;
+  border: 1px solid var(--grey-1);
+}
+.do-col h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.dont-col h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.do-col ul, .dont-col ul {
+  list-style: none;
+  padding: 0;
+}
+.do-col li, .dont-col li {
+  font-size: 13px;
+  line-height: 1.55;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--grey-1);
+  color: var(--grey-9);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.do-col li:last-child, .dont-col li:last-child { border-bottom: none; }
+.do-col li::before { content: "✓"; color: var(--blue); font-family: var(--mono); font-size: 11px; flex-shrink: 0; margin-top: 2px; font-weight: 600; }
+.dont-col li::before { content: "✗"; color: var(--ink); font-family: var(--mono); font-size: 11px; flex-shrink: 0; margin-top: 2px; font-weight: 600; }
+
+/* =============================================
+   PERSONAS
+   ============================================= */
+.persona-card {
+  border: 1px solid var(--grey-1);
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  max-width: var(--content-max);
+}
+.persona-who {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 36, 'wght' 600;
+  font-size: 20px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.persona-who em { font-style: italic; color: var(--blue); }
+.persona-profile {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--grey-5);
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+.persona-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0 16px;
+  padding: 8px 0;
+  border-top: 1px solid var(--grey-1);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.persona-row .label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+.persona-row .value { color: var(--grey-9); }
+.persona-row .value strong { color: var(--ink); font-weight: 600; }
+
+/* =============================================
+   OPTION CARDS
+   ============================================= */
+.option-card {
+  border: 1px solid var(--grey-1);
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  max-width: var(--content-max);
+}
+.option-card.rec { border-left: 3px solid var(--blue); }
+.option-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.option-label .rec-tag {
+  color: var(--ink);
+  background: var(--yellow);
+  padding: 1px 6px;
+  margin-left: 8px;
+  font-size: 9px;
+}
+.option-text {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 36, 'wght' 500;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.option-why { font-size: 13px; line-height: 1.55; color: var(--grey-7); max-width: 560px; }
+
+/* =============================================
+   CODE / MONO SPEC
+   ============================================= */
+.spec {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  background: var(--grey-0);
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline;
+}
+.spec-block {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  background: var(--grey-0);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 8px 0;
+  line-height: 1.8;
+  max-width: 480px;
+}
+
+/* =============================================
+   DOT SAMPLE
+   ============================================= */
+.dot-sample {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 60, 'wght' 600;
+  font-size: 28px;
+  line-height: 1.6;
+  color: var(--ink);
+  padding: 16px 20px;
+  background: var(--grey-0);
+  border-radius: 4px;
+  max-width: 400px;
+  margin: 8px 0;
+}
+.dot-sample .dot { color: #2132BD; }
+.dot-sample .bizhl {
+  background: var(--yellow);
+  padding: 0 6px;
+}
+
+/* =============================================
+   BEFORE / AFTER
+   ============================================= */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: var(--content-max);
+  margin: 8px 0;
+}
+.before, .after {
+  background: var(--grey-0);
+  padding: 14px 16px;
+  border-radius: 4px;
+}
+.before { border-left: 2.5px solid var(--grey-3); }
+.after  { border-left: 2.5px solid var(--blue); }
+.ba-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.before .ba-label { color: var(--grey-5); }
+.after  .ba-label { color: var(--blue); }
+.ba-text {
+  font-family: var(--display);
+  font-variation-settings: 'opsz' 24, 'wght' 400;
+  font-style: italic;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--grey-7);
+}
+.after .ba-text { color: var(--ink); }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+  max-width: var(--content-max);
+  border-top: 1px solid var(--grey-1);
+  padding: 32px 0;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.footer-left .sig { font-family: var(--script); font-size: 28px; color: var(--blue); line-height: 1; margin-bottom: 6px; }
+.footer-left .meta { font-family: var(--mono); font-size: 10px; color: var(--grey-5); letter-spacing: 0.04em; line-height: 1.7; }
+.footer-right { font-family: var(--mono); font-size: 10px; color: var(--grey-5); letter-spacing: 0.02em; text-align: right; line-height: 1.7; }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  :root { --sidebar-w: 180px; }
+  .content { padding: 0 24px 80px 32px; }
+}
+@media (max-width: 680px) {
+  .sidebar { display: none; }
+  .content { padding: 0 20px 80px 20px; }
+  .logo-grid { grid-template-columns: 1fr; }
+  .do-dont { grid-template-columns: 1fr; }
+  .before-after { grid-template-columns: 1fr; }
+  .swatches { grid-template-columns: 1fr; }
+  /* .hero-title — replaced by .nb-logo system */
+}
+
+/* =============================================
+   SCROLL SPY JS TARGET
+   ============================================= */
+.section[data-active="true"] .section-label { color: var(--blue); }
+
+/* =============================================
+   PRINT
+   ============================================= */
+@media print {
+  .topbar, .sidebar { display: none; }
+  .content { padding: 0; }
+  .section { page-break-inside: avoid; }
+}
+
+/* ============================================
+   LOGO — sistema unificado noelia.biz
+   Fuente: getComputedStyle() del sitio en vivo
+   noelia → Fraunces opsz 24 wght 500
+   biz    → Manrope 700, bg #EDDF2D
+   ============================================ */
+.nb-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: 'opsz' 24, 'wght' 500;
+  font-size: var(--nb-size, 22px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--nb-noelia-color, #111111);
+}
+.nb-logo .nb-dot {
+  color: var(--nb-dot-color, #2132BD);
+}
+.nb-logo .nb-biz {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-variation-settings: normal;
+  font-weight: 700;
+  font-size: 0.62em;
+  letter-spacing: -0.01em;
+  background: var(--nb-biz-bg, #EDDF2D);
+  color: var(--nb-biz-color, #111111);
+  padding: 0.05em 0.3em 0.1em;
+  border-radius: 3px;
+  display: inline-block;
+  transform: translateY(-0.1em);
+  margin-left: 0.05em;
+}
+/* Tamaños */
+.nb-logo.nb-xl { --nb-size: 72px; }
+.nb-logo.nb-lg { --nb-size: 44px; }
+.nb-logo.nb-md { --nb-size: 28px; }
+.nb-logo.nb-sm { --nb-size: 22px; }
+.nb-logo.nb-xs { --nb-size: 16px; }
+
+/* Variants de color */
+.nb-logo.nb-on-dark {
+  --nb-noelia-color: #FFFFFF;
+  --nb-dot-color: #EDDF2D;
+  --nb-biz-bg: #EDDF2D;
+  --nb-biz-color: #111111;
+}
+.nb-logo.nb-on-blue {
+  --nb-noelia-color: #FFFFFF;
+  --nb-dot-color: #EDDF2D;
+  --nb-biz-bg: #EDDF2D;
+  --nb-biz-color: #111111;
+}
+.nb-logo.nb-on-yellow {
+  --nb-noelia-color: #111111;
+  --nb-dot-color: #2132BD;
+  --nb-biz-bg: #111111;
+  --nb-biz-color: #EDDF2D;
+}
+.nb-logo.nb-mono {
+  --nb-noelia-color: #111111;
+  --nb-dot-color: #111111;
+  --nb-biz-bg: #111111;
+  --nb-biz-color: #FFFFFF;
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <a class="topbar-logo" href="https://noelia.biz" title="Back to noelia.biz"><span class="nb-logo nb-on-dark nb-sm"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></a>
+  <div class="topbar-meta">
+    <span class="topbar-tag">brand operating system</span>
+    <span class="topbar-ver">v 2.0</span>
+    <a href="#hero" class="topbar-top" title="Back to top" aria-label="Back to top">↑</a>
+  </div>
+</header>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar" aria-label="Brand OS navigation">
+  <div class="sidebar-group">
+    <span class="sidebar-group-label">foundation</span>
+    <a href="#how-to-use"><span class="num">01</span> How to use</a>
+    <a href="#one-rule"><span class="num">02</span> The one rule</a>
+    <a href="#three-layers"><span class="num">03</span> Three layers</a>
+    <a href="#positioning"><span class="num">04</span> Positioning</a>
+    <a href="#personas"><span class="num">05</span> Personas</a>
+  </div>
+  <div class="sidebar-group">
+    <span class="sidebar-group-label">voice</span>
+    <a href="#verbal"><span class="num">06</span> Verbal system</a>
+    <a href="#strategic-line"><span class="num">07</span> Strategic line</a>
+    <a href="#ai-actions"><span class="num">08</span> Search / Cite / Execute</a>
+    <a href="#three-languages"><span class="num">09</span> Three languages</a>
+  </div>
+  <div class="sidebar-group">
+    <span class="sidebar-group-label">visual</span>
+    <a href="#logo-system"><span class="num">10</span> Logo system</a>
+    <a href="#logo-variants"><span class="num">11</span> Logo variants</a>
+    <a href="#logo-rules"><span class="num">12</span> Do &amp; don't</a>
+    <a href="#signature"><span class="num">13</span> The signature</a>
+    <a href="#highlight"><span class="num">14</span> The highlight</a>
+    <a href="#dot"><span class="num">15</span> The dot</a>
+    <a href="#favicon"><span class="num">16b</span> Favicon</a>
+    <a href="#social-avatars"><span class="num">16c</span> Social avatars</a>
+    <a href="#colours"><span class="num">16</span> Colour system</a>
+    <a href="#typography"><span class="num">17</span> Typography</a>
+    <a href="#type-scale"><span class="num">18</span> Type scale</a>
+  </div>
+  <div class="sidebar-group">
+    <span class="sidebar-group-label">applications</span>
+    <a href="#apps-web"><span class="num">19</span> Web</a>
+    <a href="#apps-social"><span class="num">20</span> Social</a>
+    <a href="#apps-email"><span class="num">21</span> Email &amp; deliverables</a>
+    <a href="#governance"><span class="num">22</span> Governance</a>
+    <a href="#colophon"><span class="num">23</span> Colophon</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-eyebrow">brand operating system · 2026</div>
+  <h1 class="hero-title"><span class="nb-logo nb-xl"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></h1>
+  <p class="hero-declaration">This is not a brand book to admire. It is the operating system to create, decide, and ship materials — for me, for the people who help me, and for the AIs that read me.</p>
+  <p class="hero-body"><strong>Three readers.</strong> A founder who needs to move fast and wants to clone the model. An associate or freelancer producing materials in my name. An AI agent reading this file to execute the next post, page, or pitch deck without asking me twice.</p>
+  <p class="hero-body" style="margin-top:10px;"><strong>How to use it.</strong> Navigate to the section closest to your task. Each section answers three questions: <em>what it is</em>, <em>how to use it</em>, and <em>what a correct example looks like</em>.</p>
+  <div class="hero-sig">
+    <span class="sig-text">signé avec soin</span>
+    <span class="sig-meta">noelia.biz · brand reputation &amp; GEO strategist<br>Paris · EN · FR · ES · v 1.0 · may 2026</span>
+  </div>
+</div>
+
+<!-- ==================== FOUNDATION ==================== -->
+
+<section class="section" id="how-to-use" aria-label="How to use this OS">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-label">how to use this file</span>
+  </div>
+  <h2>Three readers. One file.</h2>
+
+  <div class="block">
+    <span class="block-label">For me — the brand owner</span>
+    <p>This is the contract I make with my future self. When I'm tired, when I delegate, when I scale: this file is the source of truth. I update it when the system evolves, never when the campaign of the week needs a one-off exception.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">For associates and freelancers</span>
+    <p>Open the section closest to your task. Read the three blocks. If your output matches the sample, you're aligned. If it doesn't, the sample is the answer — not your interpretation.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">For AI agents</span>
+    <p>This document is semantic HTML with stable section IDs and a JSON-LD organisation block in the <code style="font-family:var(--mono);font-size:12px;">&lt;head&gt;</code>. When asked to produce a noelia.biz asset, retrieve the relevant section by ID, read all three blocks, produce output that matches the sample. Cite the section ID used.</p>
+  </div>
+
+  <div class="callout">
+    The one rule above all: <em>strategy is the product.</em> <span class="hl">Tools are the stack.</span> The reading and the decision are mine. Everything here protects that distinction.
+    <span class="sig">signed by a person</span>
+  </div>
+</section>
+
+<!-- CHANGELOG v2 -->
+<div class="section" id="changelog" style="background:var(--grey-0);border:1px solid var(--grey-1);border-radius:8px;padding:28px 32px;margin-bottom:60px;">
+  <div class="section-header">
+    <span class="section-num">00</span>
+    <span class="section-label" style="color:var(--blue);">Changelog v2</span>
+  </div>
+  <h2 style="font-family:var(--display);font-variation-settings:''opsz' 24, 'wght' 500' 60,'wght' 300;font-size:clamp(20px,3vw,28px);letter-spacing:-0.02em;margin-bottom:24px;">Updates · June 2026</h2>
+
+  <div class="block">
+    <span class="block-label">① Heading typography — corrected</span>
+    <div class="table-wrap"><table><tr><th>Token</th><th>Before</th><th>Now (live site)</th></tr>
+    <tr><td>H1 / H2 font-variation</td><td class="mono">'opsz' 72, 'wght' 600</td><td class="mono">'opsz' 144, 'wght' 300</td></tr>
+    <tr><td>letter-spacing</td><td class="mono">-0.025em</td><td class="mono">-0.035em</td></tr>
+    <tr><td>line-height</td><td class="mono">0.95</td><td class="mono">0.97</td></tr>
+    <tr><td>btn border-radius</td><td class="mono">4px</td><td class="mono">999px (pill)</td></tr>
+    <tr><td>Allison sig size</td><td class="mono">28px</td><td class="mono">46px</td></tr>
+    <tr><td>Kicker letter-spacing</td><td class="mono">0.12em</td><td class="mono">0.22em</td></tr>
+    </table></div>
+  </div>
+
+  <div class="block" style="margin-top:20px;">
+    <span class="block-label">② Em italic in headings — confirmed rule</span>
+    <p>The key word in each heading is set in <strong>Fraunces italic</strong>. Color follows the surface:</p>
+    <div style="font-family:var(--mono);font-size:11px;background:#fff;border:1px solid var(--grey-1);padding:12px 16px;border-radius:4px;margin-top:8px;line-height:2.2;">
+      White / grey background → <code>color: #2132BD</code> (blue)<br>
+      Dark / black background → <code>color: #EDDF2D</code> (yellow)
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:20px;">
+    <span class="block-label">③ Logo kit + Social Avatars added</span>
+    <p>Six SVG logo variants (white, black, blue, yellow, monochrome, favicon). Avatar kit for LinkedIn, Instagram, Twitter/X, WhatsApp, YouTube, Substack — exact specs per platform.</p>
+    <p>Favicon revised: blue dot on yellow rounded square, transparent outer background. The noel·IA·biz avatar stacks the mark — <strong>IA</strong> lives inside <em>noelia</em> in French and Spanish. Positioning hidden in plain sight.</p>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<section class="section" id="one-rule" aria-label="The one rule above all">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-label">the one rule</span>
+  </div>
+  <h2>Strategy is the product. Tools are the stack.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>noelia.biz is not an AI consultancy, not a tool operator, not a prompt seller. It is a strategist who reads the market for brand reputation in AI-mediated channels — and signs the deliverable. The AI is the calculator. The decision is the architecture.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">How to use</span>
+    <p>Every time content, copy, or a pitch references noelia.biz capabilities: <strong>lead with the decision, name the tool second.</strong> Never say "I use AI to do X." Say "I read X, decide Y, and the AI helps me get there in a week instead of a month."</p>
+    <p>If a sentence could be written by any AI consultant, rewrite it. The voice must carry 20+ years of reading the digital ecosphere — specific market observations, not generic AI promises.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · correct</span>
+    <div class="sample">
+      <p class="sample-quote">"I notice what a brand loses the moment an AI engine decides to paraphrase it instead of cite it. I watched it happen in real time managing brand reputation at Sendinblue — across Trustpilot, the App Store, 500,000 users in 160 countries. The reading of where you're losing — and the decision of which battles to fight — is mine. The search APIs, the citation trackers, the content architecture: they execute. I architect."</p>
+    </div>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · wrong</span>
+    <div class="sample" style="border-left-color: var(--grey-3);">
+      <p class="sample-quote" style="color: var(--grey-5);">"I'm an AI marketing consultant who uses cutting-edge tools to optimise your brand for the AI era and drive measurable results."</p>
+      <p style="margin-top:10px; font-size:13px; color:var(--grey-5);">Fails because: every consultant on LinkedIn could write this today. The tools are positioned as the product. Three filler words: cutting-edge, optimise, drive.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="three-layers" aria-label="The three layers">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-label">the three layers</span>
+  </div>
+  <h2>What the work actually is.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>noelia.biz delivers three layers in this order. Confusing them — or skipping one — is how clients end up with content no AI engine cites.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:160px;">Layer</th><th style="width:220px;">What it produces</th><th>What it answers</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Machine-legible site</strong></td><td>A site whose claims, schema, and structure read in one pass.</td><td>Can the model see who you are without guessing?</td></tr>
+        <tr><td><strong>2. Citable content</strong></td><td>Pages built so a short, true sentence inside gets quoted.</td><td>When the model paraphrases your category, is your sentence the one borrowed?</td></tr>
+        <tr><td><strong>3. Reputation signal</strong></td><td>The slow accumulation of mentions the LLM treats as trust.</td><td>When two sources contradict, why would the model believe yours?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="block" style="margin-top:20px;">
+    <span class="block-label">How to use</span>
+    <p>Name which layer the work is in. A blog post is layer 2. A schema rewrite is layer 1. A PR placement is layer 3. The deliverable doesn't change; the framing of <em>why it matters</em> does.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample</span>
+    <div class="sample">
+      <p class="sample-quote">"Three layers: a site machines can read, content built to be quoted, and the slower work of becoming someone the model already trusts."</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="positioning" aria-label="Positioning statement">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-label">positioning</span>
+  </div>
+  <h2>The sentence I'd say at a dinner.</h2>
+
+  <div class="block">
+    <span class="block-label">The statement</span>
+    <p style="font-family:var(--display); font-variation-settings:'opsz' 36,'wght' 400; font-style:italic; font-size:18px; line-height:1.45; color:var(--ink); max-width:580px;">For brand owners who already sense that AI changed who gets chosen — <strong>noelia.biz is the strategy, content and reputation layer that makes AI engines represent and cite a brand well.</strong> Not "AI expert." The person who reads the market and signs the result.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">What "reads the market" means</span>
+    <p>Reading the market is the part no tool does. It is noticing — across enough years and enough categories — where the actual buyer signal lives this quarter, which trends are theatre and which are tectonic, and which battles are worth fighting now versus next year. That is what 20+ years in the digital ecosphere buys: pattern recognition that doesn't appear in any training set.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">What "signs the result" means</span>
+    <p>Signs is literal. Every deliverable that leaves noelia.biz carries the <em>signé avec soin</em> mark, in blue, by hand. It is not a logo. It is an accountability mark — a promise that a person reviewed, edited, and owns this. The signature is the difference between a deliverable and a template.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">Short versions for bios and social</span>
+    <div class="spec-block">Strategy, content and reputation layer for AI-mediated brands.<br>Paris · EN · FR · ES · noelia.biz</div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="personas" aria-label="Audience personas">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-label">audience personas</span>
+  </div>
+  <h2>Three real buyers, no CFO.</h2>
+  <p class="block" style="font-size:14px; color:var(--grey-7); margin-bottom:20px;">CFOs approve budgets, they don't recommend agencies. The buyers and the influencers of the buy are below.</p>
+
+  <article class="persona-card">
+    <div class="persona-who">The <em>visionary founder</em></div>
+    <div class="persona-profile">first or second-time founder · Series A–B · 5–25 employees · EN-first SaaS or consumer brand</div>
+    <div class="persona-row"><span class="label">Fear</span><span class="value">Disappearing from AI answers without noticing. A board that asks how the brand shows up in ChatGPT next quarter.</span></div>
+    <div class="persona-row"><span class="label">What I sell</span><span class="value"><strong>A measurable visibility curve they can show the board.</strong> Month-over-month delta across four engines, three languages, five priority queries. The curve is the deck.</span></div>
+  </article>
+
+  <article class="persona-card">
+    <div class="persona-who">The <em>CMO / Head of Growth</em></div>
+    <div class="persona-profile">5–15 years in role · Series B–D or established brand · team of 3–10 · piloting AI internally, not yet for GEO</div>
+    <div class="persona-row"><span class="label">Fear</span><span class="value">A competitor showing up in ChatGPT answers first — and being twelve months behind when it becomes a category concern.</span></div>
+    <div class="persona-row"><span class="label">What I sell</span><span class="value"><strong>An undervalued channel with very few specialists.</strong> A Q3 advantage they can quantify and defend against the board's "is this just AI hype" question.</span></div>
+  </article>
+
+  <article class="persona-card">
+    <div class="persona-who">Marketing &amp; sales <em>associates / content leads</em></div>
+    <div class="persona-profile">senior associates, brand managers, content leads · the people actually shipping materials</div>
+    <div class="persona-row"><span class="label">Fear</span><span class="value">Creating content all month and not knowing if it's working for the layer their CMO keeps asking about. Being measured on a metric no one yet has a clean definition for.</span></div>
+    <div class="persona-row"><span class="label">What I sell</span><span class="value"><strong>A repeatable system + a scorecard that proves the work.</strong> A method run weekly, a Brand OS like this one, and a citation-tracking ritual that makes their work legible to the people who decide their next promotion.</span></div>
+  </article>
+</section>
+<div class="section-divider"></div>
+
+<!-- ==================== VOICE ==================== -->
+
+<section class="section" id="verbal" aria-label="Verbal system">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <span class="section-label">verbal system</span>
+  </div>
+  <h2>How the voice sounds.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p><strong>Poetic-strategic. Warm, direct, visionary.</strong> Write the way I'd talk to a founder over coffee — never the way an agency writes a proposal. Emotional appeal and factual claims, in the same sentence.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">How to use</span>
+    <ul>
+      <li><strong>Lead with the observation, not the offer.</strong> "I notice what brands lose when they're translated badly" before "I provide multilingual brand audits."</li>
+      <li><strong>Specific over abstract.</strong> Name the channel, the query, the engine. "ChatGPT mentions you in 1 of 5 category prompts" beats "AI visibility audit."</li>
+      <li><strong>One technical term per paragraph.</strong> Pair it with the plain-language version: "schema — the labels that tell a machine what it's looking at."</li>
+      <li><strong>French moments allowed.</strong> <em>Signé avec soin</em>, <em>fait main</em>. Never as decoration — only when the word is the right word.</li>
+      <li><strong>The coffee test.</strong> Read the sentence aloud. Would I say it across a small table to a founder I respect? If not, rewrite.</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Banned vocabulary</span>
+    <div class="spec-block">moat · leverage · synergy · ecosystem play · compound · north-star metric<br>mission-critical · cutting-edge · drive results · unlock value · game-changing</div>
+    <p style="margin-top:8px; font-size:13px; color:var(--grey-7);">Banned not because they're wrong — because they're someone else's voice.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · before / after</span>
+    <div class="before-after">
+      <div class="before">
+        <div class="ba-label">before · agency</div>
+        <p class="ba-text">"Four practices that compound to build long-term brand equity in AI-mediated discovery channels."</p>
+      </div>
+      <div class="after">
+        <div class="ba-label">after · noelia.biz</div>
+        <p class="ba-text">"Reputation is the parent. The rest is how I get there: a site machines can read, content built to be quoted, and the slow work of becoming someone they keep mentioning."</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="strategic-line" aria-label="Strategic phrasing options">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <span class="section-label">strategic line</span>
+  </div>
+  <h2>How I describe what "strategic" means.</h2>
+  <p style="font-size:14px; color:var(--grey-7); margin-bottom:20px;">Three options. C is the recommendation — most specific to the niche, has a concrete falsifiability test.</p>
+
+  <div class="option-card">
+    <div class="option-label">Option A</div>
+    <div class="option-text">"Reads the opening that's already inside the content."</div>
+    <p class="option-why">Not about chasing trends — about seeing what's already exploitable in what's already published. Best for content audit framing.</p>
+  </div>
+  <div class="option-card">
+    <div class="option-label">Option B</div>
+    <div class="option-text">"Sees what compounds beyond the trend cycle."</div>
+    <p class="option-why">Long-term thinking, holds value across multiple waves of platforms. Good for board-room conversations. Pairs well with a concrete proof point.</p>
+  </div>
+  <div class="option-card rec">
+    <div class="option-label">Option C <span class="rec-tag">recommended</span></div>
+    <div class="option-text">"Builds reputation that survives the next AI model release."</div>
+    <p class="option-why">Not platform-specific. Concrete test: does the next ChatGPT update still cite you? Use on the homepage hero, pitch deck cover, and bio.</p>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="ai-actions" aria-label="AI search cite execute">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <span class="section-label">search ≠ cite ≠ execute</span>
+  </div>
+  <h2>The three things AI does to a brand.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>"Search" and "cite" aren't synonyms. Mixing them is the most expensive vocabulary mistake in this category right now.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:90px;">Action</th><th style="width:200px;">What it produces</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Search</strong></td><td>A list of links the model retrieved.</td><td>The old paradigm. SEO trains for this. Being in the link list ≠ being in the answer.</td></tr>
+        <tr><td><strong>Cite</strong></td><td>Your brand named inside the generated answer.</td><td>The new paradigm. GEO optimises for this. Being in the answer text is worth more than a link — most readers never click.</td></tr>
+        <tr><td><strong>Execute</strong></td><td>The agentic AI performs the action — books, buys, schedules.</td><td>The next paradigm. When AI agents transact on behalf of users, the brand needs to be in the executable path.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="block" style="margin-top:20px;">
+    <span class="block-label">How to use in copy</span>
+    <ul>
+      <li><strong>Layer 1 (machine-legible site)</strong> serves search.</li>
+      <li><strong>Layer 2 (citable content)</strong> serves citation.</li>
+      <li><strong>Layer 3 (reputation signal)</strong> serves both, and is the foundation for execution.</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · the line that does the work</span>
+    <div class="sample">
+      <p class="sample-quote">"AI tools search, cite, and execute. They don't decide. Search returns links, citation embeds your brand inside the answer, execution performs the next step on the user's behalf. GEO is about being cited. Almost no one is optimising for it yet."</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="three-languages" aria-label="Three languages">
+  <div class="section-header">
+    <span class="section-num">09</span>
+    <span class="section-label">three languages, one selector</span>
+  </div>
+  <h2>EN master · FR &amp; ES adaptations.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>English is the master version. French and Spanish are <strong>adaptations, not translations.</strong> A translation is a swap. An adaptation rewrites a sentence so that a French reader hears it the way a French reader hears anything that respects French. The three languages are the proof of the work in action.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">How to use</span>
+    <ul>
+      <li>Always write the master in EN first. Don't skip ahead.</li>
+      <li>Adapt to FR before ES. French reveals where the EN got lazy.</li>
+      <li>Forbid translated marketing English in FR: no <em>impactant, incontournable, leader</em>.</li>
+      <li>Spanish adapts for register: <em>tú</em> on the site, <em>usted</em> in formal enterprise proposals.</li>
+      <li>Hreflang on every page. Three URLs, three real meta descriptions, never auto-translated.</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · same idea, three drafts</span>
+    <div class="kv" style="max-width:100%; background:var(--grey-0); padding:14px 16px; border-radius:4px; font-size:14px; grid-template-columns:60px 1fr;">
+      <span class="k">EN</span><span class="v" style="color:var(--ink);">"I make brands the ones AI cites."</span>
+      <span class="k">FR</span><span class="v" style="color:var(--ink);">"Je rends les marques citables — pour de vrai, par les moteurs qui comptent."</span>
+      <span class="k">ES</span><span class="v" style="color:var(--ink);">"Hago que las marcas sean las que la IA cita — no las que solo aparecen."</span>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- ==================== VISUAL ==================== -->
+
+<section class="section" id="logo-system" aria-label="Logo system">
+  <div class="section-header">
+    <span class="section-num">10</span>
+    <span class="section-label">logo system</span>
+  </div>
+  <h2>The wordmark is the URL.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>noelia.biz is a brand name <em>and</em> a working URL. The logo preserves the URL as the mark. Three elements make the system:</p>
+    <ul>
+      <li><strong>noelia</strong> — Fraunces serif. Warm, human, editorial. The part that says "a person made this."</li>
+      <li><strong>. (the blue dot)</strong> — URL separator first, brand accent second. Will reappear as subdomain dots grow: <em>ai.noelia.biz</em>, <em>scorecards.noelia.biz</em>.</li>
+      <li><strong>biz on yellow</strong> — Inter bold inside a yellow marker highlight. The rectangle demonstrates the service: <strong>marking what matters.</strong> The same yellow appears when a user selects text on the site (<code class="spec">::selection</code>).</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · master lockup</span>
+    <div class="logo-tile on-paper" style="max-width:420px; margin:8px 0;">
+      <div class="logo-tile-inner" style="padding:28px 40px;">
+        <span class="nb-logo nb-xl"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span>
+      </div>
+      <div class="logo-tile-caption">primary lockup · use on white or any light surface</div>
+    </div>
+  </div>
+  <div class="block">
+    <span class="block-label">How to use</span>
+    <p>Always use the provided asset file — never reconstruct in CSS or code. Minimum width: <strong>120px on screen, 25mm in print.</strong> Below that, use the favicon mark (blue dot on yellow rounded square).</p>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="logo-variants" aria-label="Logo variants">
+  <div class="section-header">
+    <span class="section-num">11</span>
+    <span class="section-label">logo variants</span>
+  </div>
+  <h2>Five lockups, one rule per surface.</h2>
+
+  <div class="logo-grid">
+    <div>
+      <div class="logo-tile on-paper"><div class="logo-tile-inner"><span class="nb-logo nb-lg"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></div>
+        <div class="logo-tile-caption">on paper · default · 90% of use</div>
+      </div>
+    </div>
+    <div>
+      <div class="logo-tile on-ink"><div class="logo-tile-inner"><span class="nb-logo nb-on-dark nb-lg"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></div>
+        <div class="logo-tile-caption" style="color:#888;">on ink · dark mode, deck covers</div>
+      </div>
+    </div>
+    <div>
+      <div class="logo-tile on-blue"><div class="logo-tile-inner"><span class="nb-logo nb-on-blue nb-lg"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></div>
+        <div class="logo-tile-caption" style="color:rgba(255,255,255,0.6);">on blue · brand campaigns, social</div>
+      </div>
+    </div>
+    <div>
+      <div class="logo-tile on-yellow"><div class="logo-tile-inner"><span class="nb-logo nb-on-yellow nb-lg"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></div>
+        <div class="logo-tile-caption">on yellow · content cards, stickers</div>
+      </div>
+    </div>
+    <div>
+      <div class="logo-tile on-dark"><div class="logo-tile-inner"><span class="nb-logo nb-on-dark nb-lg"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></div>
+        <div class="logo-tile-caption" style="color:#888;">sobrio · watermark, footer · the whisper</div>
+      </div>
+    </div>
+    <div>
+      <div class="logo-tile on-neutral"><div class="logo-tile-inner"><span class="nb-logo nb-lg"><span class="nb-noelia">noelia</span><span class="nb-dot">.</span><span class="nb-biz">biz</span></span></div>
+        <div class="logo-tile-caption">favicon · the brand at its atom</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:16px;">
+    <span class="block-label">How to use</span>
+    <p><strong>Match the composition to the surface.</strong> Never put the paper version on a dark background — the white halo appears. If the surface isn't paper, ink, blue, or yellow, use the wordmark-only transparent variant or the favicon mark.</p>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="logo-rules" aria-label="Logo do and don't">
+  <div class="section-header">
+    <span class="section-num">12</span>
+    <span class="section-label">logo · do &amp; don't</span>
+  </div>
+  <h2>The boundary of the mark.</h2>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <h4>Do</h4>
+      <ul>
+        <li>Use the provided asset file. Always.</li>
+        <li>Keep clear space ≥ x-height of the lowercase <em>n</em> on all sides.</li>
+        <li>Pair with <em>signé avec soin</em> on formal deliverables.</li>
+        <li>Below 120px: switch to the favicon mark.</li>
+        <li>Match ::selection yellow on the website to the logo yellow.</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <h4>Don't</h4>
+      <ul>
+        <li>Recreate the wordmark in PowerPoint text boxes.</li>
+        <li>Stretch, rotate, or skew the lockup.</li>
+        <li>Add gradient, drop shadow, or stroke.</li>
+        <li>Use the highlight yellow as a generic accent elsewhere.</li>
+        <li>Translate the wordmark. The URL doesn't translate.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="signature" aria-label="The signature element">
+  <div class="section-header">
+    <span class="section-num">13</span>
+    <span class="section-label">the signature</span>
+  </div>
+  <h2><em>signé avec soin</em> — what it means.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>The signature is the brand's accountability mark. Set in <strong>Allison</strong> script, in the brand blue, it lives anywhere the work is shipped: cover pages, email footers, last slide of a deck. It is not a logo — it is a promise that a person reviewed and owns this.</p>
+    <p>In a category drowning in AI-generated work, the signature is the visible difference. Made with AI is fine. <strong>Signed by a person</strong> is the offer.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">How to use</span>
+    <ul>
+      <li><strong>Default: French.</strong> The site is EN but the signature stays French — it is part of the identity, not a translation.</li>
+      <li>Localised adaptation on market-specific materials: <em>signed in good conscience</em> (EN), <em>revisado en conciencia</em> (ES).</li>
+      <li>Never bold, never sentence-capped. Lowercase script, always blue.</li>
+      <li>Size: 1.6–2× the body type around it. It should read as handwritten alongside set type.</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · three languages</span>
+    <div class="kv" style="background:var(--grey-0); padding:16px 20px; border-radius:4px; grid-template-columns:80px 1fr; gap:0 12px;">
+      <span class="k" style="padding-top:8px;">FR · default</span><span class="v" style="font-family:var(--script); font-size:30px; color:var(--blue); line-height:1.3;">signé avec soin</span>
+      <span class="k" style="padding-top:8px;">EN</span><span class="v" style="font-family:var(--script); font-size:30px; color:var(--blue); line-height:1.3;">signed in good conscience</span>
+      <span class="k" style="padding-top:8px;">ES</span><span class="v" style="font-family:var(--script); font-size:30px; color:var(--blue); line-height:1.3;">revisado en conciencia</span>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="highlight" aria-label="The yellow highlight system">
+  <div class="section-header">
+    <span class="section-num">14</span>
+    <span class="section-label">the yellow highlight</span>
+  </div>
+  <h2>The marker that means: <span class="hl">this matters.</span></h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>The yellow is not a decorative accent. It is a <strong>semantic marker</strong>. Yellow appears on three things only:</p>
+    <ol>
+      <li>Behind <strong>.biz</strong> in the wordmark — marking the business half of the personal brand.</li>
+      <li>Behind the <strong>most important word</strong> in a hero headline or key sentence — when something is the answer, the yellow is the visible vote.</li>
+      <li>On the website's <strong><code class="spec">::selection</code> rule</strong> — when a reader selects text to copy, it turns yellow. What you're selecting is what matters. The brand's marker matches the user's marker.</li>
+    </ol>
+  </div>
+  <div class="block">
+    <span class="block-label">How to use</span>
+    <ul>
+      <li><strong>One yellow per surface.</strong> If the headline carries a highlight, the body doesn't.</li>
+      <li><strong>Always over a content word.</strong> Highlight the noun, verb, or proper name — never a preposition.</li>
+      <li><strong>Never as a background block.</strong> The yellow wraps text, period.</li>
+      <li>CSS variable: <code class="spec">--yellow: #EDDF2D</code>. Same value everywhere — logo, highlights, ::selection.</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample</span>
+    <div class="sample">
+      <p class="sample-quote">I make brands the ones AI <span class="hl">cites.</span></p>
+      <p style="margin-top:10px; font-size:13px;">"Cites" is the operative word. Without the highlight it's a claim. With it, the highlight demonstrates the service in the act of reading.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="dot" aria-label="The blue dot system">
+  <div class="section-header">
+    <span class="section-num">15</span>
+    <span class="section-label">the blue dot</span>
+  </div>
+  <h2>A dot that grows with the brand.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>The blue dot is both punctuation and identity. In <strong>noelia.biz</strong> it is the URL separator. In <strong>ai.noelia.biz</strong> it doubles. In <strong>scorecards.noelia.biz</strong> it triples. Each subdomain adds a dot — the same blue, every time. Read as identity, the dots are nodes in a constellation.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">How to use</span>
+    <ul>
+      <li>Hex: <code class="spec">#2132BD</code>. Always.</li>
+      <li>On dark surfaces, the dot inherits surface contrast — white on ink, dark on blue.</li>
+      <li>Subdomains follow the rule: dot, sub, dot, root. Never substitute a hyphen or slash.</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · the system extending</span>
+    <div class="dot-sample">
+      noelia<span class="dot">.</span><span class="bizhl">biz</span><br>
+      ai<span class="dot">.</span>noelia<span class="dot">.</span>biz<br>
+      scorecards<span class="dot">.</span>noelia<span class="dot">.</span>biz<br>
+      fr<span class="dot">.</span>noelia<span class="dot">.</span>biz
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="colours" aria-label="Colour system">
+  <div class="section-header">
+    <span class="section-num">16</span>
+    <span class="section-label">colour system</span>
+  </div>
+  <h2>Four colours. One job each.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>Every colour in the system has a single semantic role. Use them for their job; never for decoration. White is the canvas (90%). Ink carries structure. Blue marks decisions. Yellow marks moments.</p>
+  </div>
+
+  <div class="swatches">
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#fff; border-bottom:1px solid var(--grey-1);"><span class="name" style="color:var(--ink);">paper</span></div>
+      <div class="swatch-info">
+        <div class="row"><span>role</span><span>background · 90% of surfaces</span></div>
+        <div class="row"><span>HEX</span><span>#FFFFFF</span></div>
+        <div class="row"><span>RGB</span><span>255 · 255 · 255</span></div>
+        <div class="row"><span>CMYK</span><span>0 · 0 · 0 · 0</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#111111;"><span class="name" style="color:#fff;">ink</span></div>
+      <div class="swatch-info">
+        <div class="row"><span>role</span><span>text · primary structure</span></div>
+        <div class="row"><span>HEX</span><span>#111111</span></div>
+        <div class="row"><span>RGB</span><span>17 · 17 · 17</span></div>
+        <div class="row"><span>CMYK</span><span>0 · 0 · 0 · 93</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#2132BD;"><span class="name" style="color:#fff;">blue</span></div>
+      <div class="swatch-info">
+        <div class="row"><span>role</span><span>accent · dot · signature · labels</span></div>
+        <div class="row"><span>HEX</span><span>#2132BD</span></div>
+        <div class="row"><span>RGB</span><span>33 · 50 · 189</span></div>
+        <div class="row"><span>CMYK</span><span>83 · 74 · 0 · 26</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#EDDF2D;"><span class="name" style="color:#111;">yellow</span></div>
+      <div class="swatch-info">
+        <div class="row"><span>role</span><span>marker · ::selection · this matters</span></div>
+        <div class="row"><span>HEX</span><span>#EDDF2D</span></div>
+        <div class="row"><span>RGB</span><span>237 · 223 · 45</span></div>
+        <div class="row"><span>CMYK</span><span>0 · 6 · 81 · 7</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="typography" aria-label="Typography system">
+  <div class="section-header">
+    <span class="section-num">17</span>
+    <span class="section-label">typography</span>
+  </div>
+  <h2>Four typefaces, justified.</h2>
+
+  <div class="type-block">
+    <div class="type-display">Fraunces — the editorial serif.</div>
+    <p class="type-why"><strong>Use for</strong> display, H1–H3, hero quotes. <strong>Why:</strong> modern serif with variable optical-size axis and expressive italics. Reads as editorial — feels like a thought magazine, not a SaaS template. Also lives inside the noelia.biz wordmark itself, so every headline echoes the logo. <strong>Why not Inter or Roboto:</strong> those signal "AI-generated SaaS." Fraunces signals "a person made an editorial decision."</p>
+    <div class="type-meta">free · Google Fonts · variable · opsz 9–144 · wght 100–900</div>
+  </div>
+
+  <div class="type-block">
+    <p class="type-body">Manrope — the geometric warm sans. Used for body, captions, navigation, paragraph copy. Legible at 9pt, plays well with Fraunces without competing. Not Inter (which is on every site and now signals AI output).</p>
+    <div class="type-meta">free · Google Fonts · wght 200–800</div>
+  </div>
+
+  <div class="type-block">
+    <div class="type-mono">JetBrains Mono — the technical mark. Labels, metrics, code, schema, version stamps, file names. Adds technical credibility — schema, GEO, datasets — without dragging body copy into terminal aesthetics.</div>
+    <div class="type-meta">free · Google Fonts · wght 400–700</div>
+  </div>
+
+  <div class="type-block">
+    <div class="type-script">Allison — by hand.</div>
+    <p class="type-why"><strong>Use for</strong> the <em>signé avec soin</em> mark only. The signature is the brand's accountability device. In a category full of machine-generated work, a script typeface is the visible difference between a deliverable and a template.</p>
+    <div class="type-meta">free · Google Fonts · regular only</div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="type-scale" aria-label="Type scale">
+  <div class="section-header">
+    <span class="section-num">18</span>
+    <span class="section-label">type scale</span>
+  </div>
+  <h2>How big, how heavy, where.</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Token</th><th>Family</th><th>Size</th><th>Weight</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td><strong>display-xl</strong></td><td class="mono">Fraunces</td><td class="mono">72–96px</td><td class="mono">600 · opsz 144</td><td>Cover titles</td></tr>
+        <tr><td><strong>display-lg</strong></td><td class="mono">Fraunces</td><td class="mono">44–56px</td><td class="mono">600 · opsz 144</td><td>H1 · page openers</td></tr>
+        <tr><td><strong>display-md</strong></td><td class="mono">Fraunces</td><td class="mono">26–34px</td><td class="mono">600 · opsz 60</td><td>H2 · section titles</td></tr>
+        <tr><td><strong>display-sm</strong></td><td class="mono">Fraunces</td><td class="mono">18–22px</td><td class="mono">500 · opsz 36</td><td>H3 · pull quotes</td></tr>
+        <tr><td><strong>intro</strong></td><td class="mono">Fraunces</td><td class="mono">18–20px</td><td class="mono">400 · opsz 24 · italic</td><td>Lead paragraphs</td></tr>
+        <tr><td><strong>body</strong></td><td class="mono">Manrope</td><td class="mono">14–16px</td><td class="mono">400</td><td>Paragraph copy · default</td></tr>
+        <tr><td><strong>body-bold</strong></td><td class="mono">Manrope</td><td class="mono">14–16px</td><td class="mono">600</td><td>Bold inside paragraphs</td></tr>
+        <tr><td><strong>caption</strong></td><td class="mono">Manrope</td><td class="mono">12–13px</td><td class="mono">400</td><td>Captions · footnotes</td></tr>
+        <tr><td><strong>label</strong></td><td class="mono">JetBrains Mono</td><td class="mono">9–11px</td><td class="mono">500–600 · uppercase</td><td>Section labels · tags</td></tr>
+        <tr><td><strong>mono-data</strong></td><td class="mono">JetBrains Mono</td><td class="mono">11–13px</td><td class="mono">400</td><td>Hex codes · specs · file names</td></tr>
+        <tr><td><strong>signature</strong></td><td class="mono">Allison</td><td class="mono">24–36px</td><td class="mono">regular</td><td>signé avec soin · only this</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- ==================== APPLICATIONS ==================== -->
+
+<section class="section" id="apps-web" aria-label="Applications web">
+  <div class="section-header">
+    <span class="section-num">19</span>
+    <span class="section-label">applications · web</span>
+  </div>
+  <h2>How the system lives on the site.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>The website is the canonical place where every brand element appears in its native habitat. It is also the live demo of the service — its own machine-legibility, answer-first architecture, citation hygiene.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Surface</th><th>Asset</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Header / navbar</strong></td><td class="mono">logo · on paper</td><td>120–160px wide · always link to /</td></tr>
+        <tr><td><strong>Hero headline</strong></td><td class="mono">Fraunces 600 · opsz 144</td><td>One headline · one yellow highlight · one blue dot accent</td></tr>
+        <tr><td><strong>Body copy</strong></td><td class="mono">Manrope 400 · 16px</td><td>line-height 1.6 · max-width 65ch</td></tr>
+        <tr><td><strong>Labels / tags</strong></td><td class="mono">JetBrains Mono 500</td><td>uppercase · 10–11px · letter-spacing 0.08em</td></tr>
+        <tr><td><strong>Footer</strong></td><td class="mono">sobrio + signature</td><td>Logo 80px · Allison signature · language selector</td></tr>
+        <tr><td><strong>::selection</strong></td><td class="mono">background: #EDDF2D</td><td>Same yellow as logo highlight — closes the brand loop</td></tr>
+        <tr><td><strong>Favicon</strong></td><td class="mono">dot on yellow · 32/180/512px</td><td>SVG + multi-size PNG · apple-touch-icon for iOS</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="block" style="margin-top:16px;">
+    <span class="block-label">AI readability checklist</span>
+    <ul>
+      <li>Every page answers the user query in the first 1–2 sentences (answer-first).</li>
+      <li>Schema markup on every page: Person, Service, Article.</li>
+      <li>Hreflang on every translated route (EN / FR / ES).</li>
+      <li>JSON-LD Organisation block in the global layout <code class="spec">&lt;head&gt;</code>.</li>
+    </ul>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="apps-social" aria-label="Applications social">
+  <div class="section-header">
+    <span class="section-num">20</span>
+    <span class="section-label">applications · social</span>
+  </div>
+  <h2>Social is the citation pipeline.</h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>Social posts aren't "content marketing." They are the raw material that AI engines learn from. Every post is a future citation. The discipline: <strong>write the line you want quoted, then build the post around it.</strong></p>
+  </div>
+  <div class="block">
+    <span class="block-label">LinkedIn specs</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+      <tbody>
+        <tr><td>Banner</td><td>1584 × 396px · logo on blue · left-anchored at 25–30% width</td></tr>
+        <tr><td>Profile photo</td><td><strong>Headshot, not logo.</strong> Faces get 3× the engagement on personal profiles.</td></tr>
+        <tr><td>Company page icon</td><td>favicon on yellow · 300 × 300 · displayed circular</td></tr>
+        <tr><td>Post hook</td><td>The citable line · first line of post · ≤ 12 words</td></tr>
+        <tr><td>Carousel corner mark</td><td>wordmark-light · ≥ 80px · bottom-right</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="block">
+    <span class="block-label">Avatars — other platforms</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Platform</th><th>Asset</th><th>Size</th></tr></thead>
+      <tbody>
+        <tr><td>X / Twitter</td><td>favicon on yellow</td><td>400 × 400</td></tr>
+        <tr><td>Instagram</td><td>favicon on yellow</td><td>320 × 320</td></tr>
+        <tr><td>YouTube</td><td>favicon on yellow</td><td>800 × 800</td></tr>
+        <tr><td>WhatsApp Business</td><td>favicon on yellow</td><td>500 × 500</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:8px; font-size:13px; color:var(--grey-7);">Yellow background for avatars — not ink — because yellow has the highest visibility in compressed circular thumbnails across both dark and light feeds.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">Sample · the citable hook formula</span>
+    <div class="sample">
+      <p class="sample-quote">"A citation gap is the distance between the brands an AI engine knows and the brands it cites. Closing it is what GEO actually does."</p>
+      <p style="margin-top:10px; font-size:13px;">One sentence. Names the concept. Provides the definition. Anchors the offer. That sentence is what an AI engine can lift and attribute. The post is the wrapper.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="apps-email" aria-label="Applications email and deliverables">
+  <div class="section-header">
+    <span class="section-num">21</span>
+    <span class="section-label">applications · email &amp; deliverables</span>
+  </div>
+  <h2>The slow surfaces.</h2>
+
+  <div class="block">
+    <span class="block-label">Email signature</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+      <tbody>
+        <tr><td>Logo</td><td>on-paper PNG @1x · 160px wide · linked to noelia.biz</td></tr>
+        <tr><td>Signature</td><td><em>signé avec soin</em> · Allison rendered as PNG · blue · 18–22px</td></tr>
+        <tr><td>Name + title</td><td>Manrope Regular · "Noelia · Brand Reputation &amp; GEO Strategist · Paris"</td></tr>
+        <tr><td>Shapet</td><td>PNG only · never SVG · explicit width/height for Outlook</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="block">
+    <span class="block-label">Client deliverables (audits, reports, proposals)</span>
+    <ul>
+      <li><strong>Cover:</strong> logo full-width · client name in Fraunces Display · date and version in JetBrains Mono.</li>
+      <li><strong>Running footer:</strong> page number left · <em>signé avec soin par noelia.biz</em> right.</li>
+      <li><strong>Colophon (last page):</strong> signature large · brief credits · version.</li>
+      <li>The client's brand is the primary identity. noelia.biz is the craftsperson's mark — visible but not dominant.</li>
+    </ul>
+  </div>
+  <div class="block">
+    <span class="block-label">Presentations</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Slide type</th><th>Logo</th><th>Size · position</th></tr></thead>
+      <tbody>
+        <tr><td>Cover · dark</td><td>on-ink or on-blue</td><td>35–40% slide width · centered or left</td></tr>
+        <tr><td>Cover · light</td><td>on-paper</td><td>35–40% slide width · centered or left</td></tr>
+        <tr><td>Content slides</td><td>sobrio or wordmark</td><td>80–100px · bottom-right</td></tr>
+        <tr><td>Final slide</td><td>on-yellow · centered</td><td>40% slide width · no copy needed</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="governance" aria-label="Governance quick reference">
+  <div class="section-header">
+    <span class="section-num">22</span>
+    <span class="section-label">governance · quick reference</span>
+  </div>
+  <h2>The one-page decision card.</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:280px;">I need…</th><th>Use this</th></tr></thead>
+      <tbody>
+        <tr><td>Logo for a white doc or web page</td><td class="mono">on-paper</td></tr>
+        <tr><td>Logo for a dark hero or deck cover</td><td class="mono">on-ink</td></tr>
+        <tr><td>Logo for a brand-blue campaign</td><td class="mono">on-blue</td></tr>
+        <tr><td>Logo for a yellow content card</td><td class="mono">on-yellow (highlight dissolves)</td></tr>
+        <tr><td>Footer or watermark</td><td class="mono">sobrio-on-ink</td></tr>
+        <tr><td>Favicon, avatar, app icon</td><td class="mono">favicon · dot on yellow</td></tr>
+        <tr><td>Signature on a deliverable</td><td class="mono">Allison · blue · FR default</td></tr>
+        <tr><td>Headline typeface</td><td class="mono">Fraunces · 600 · opsz 60+</td></tr>
+        <tr><td>Body copy typeface</td><td class="mono">Manrope · 400 · 16px</td></tr>
+        <tr><td>Label or spec</td><td class="mono">JetBrains Mono · 500–600 · uppercase</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block" style="margin-top:20px;">
+    <span class="block-label">Asset naming convention</span>
+    <div class="spec-block">noelia-biz-[element]-[variant]-[size].[ext]<br><br>Examples:<br>noelia-biz-logo-on-paper@2x.png<br>noelia-biz-favicon-dot-on-yellow@180.png<br>noelia-biz-logo-on-ink@2x.pdf</div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="section" id="colophon" aria-label="Colophon">
+  <div class="section-header">
+    <span class="section-num">23</span>
+    <span class="section-label">colophon</span>
+  </div>
+  <h2>Made with AI. <em>Signed by a person.</em></h2>
+
+  <div class="block">
+    <span class="block-label">What is</span>
+    <p>This file is the operating system of noelia.biz. It exists so the brand can be made — in materials and conversations — by people who aren't me, and by AIs that read it, without losing the thing that makes it noelia.biz: that a person decided.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">The credit line</span>
+    <p>Made with AI · prompted, edited, and signed by Noelia. The AI accelerated the drafting. The decisions — the strategic line, the persona insights, the typographic choices, the colour roles, the boundary between marketing language and the brand's voice</p>
+    <p style="font-family:var(--script);font-size:36px;color:var(--blue);line-height:1.2;margin-top:8px;">— are mine.</p>
+  </div>
+  <div class="block">
+    <span class="block-label">What changes in v 2.0</span>
+    <ul>
+      <li>Photography direction (captured progressively as the brand publishes).</li>
+      <li>Motion / video lockup behaviour.</li>
+      <li>A vertical lockup of the wordmark for product splash screens.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <em>Strategy is the product. The tools are the stack.</em> The reading and the decision are mine. Everything in this file is the system that protects that distinction.
+    <span class="sig">signé avec soin</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="sig">signé avec soin</div>
+    <div class="meta">noelia.biz · brand reputation &amp; GEO strategist<br>Paris · EN · FR · ES</div>
+  </div>
+  <div class="footer-right">
+    v 1.0 · may 2026<br>
+    signed by a person, made with AI<br>
+    manual.noelia.biz
+  </div>
+</footer>
+
+
+<!-- SOCIAL AVATARS SECTION -->
+
+<!-- FAVICON SECTION -->
+<div class="section-divider"></div>
+<section class="section" id="favicon" aria-label="Favicon">
+  <div class="section-header">
+    <span class="section-num">16b</span>
+    <span class="section-label">Favicon</span>
+  </div>
+  <h2>Blue dot · yellow square — the favicon.</h2>
+  <p class="section-intro">At 32×32px the full logo does not fit. The favicon uses a blue dot on a yellow rounded square — transparent outer corners, no visible frame at any size. The IA positioning lives in the avatar system, not the favicon.</p>
+
+  <div class="block">
+    <span class="block-label">Live demo — in the browser tab</span>
+    <p>The favicon you see in the tab of this document is the noelia.biz favicon — inline SVG, no external file.</p>
+    <div style="display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;margin-top:20px;">
+
+      <!-- 64px -->
+      <div style="text-align:center;">
+        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 8px;">
+          <rect x="8" y="8" width="48" height="48" rx="10" fill="#EDDF2D"/>
+          <circle cx="32" cy="32" r="10" fill="#2132BD"/>
+        </svg>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--grey-5);">64px</span>
+      </div>
+
+      <!-- 48px -->
+      <div style="text-align:center;">
+        <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 8px;">
+          <rect x="8" y="8" width="48" height="48" rx="10" fill="#EDDF2D"/>
+          <circle cx="32" cy="32" r="10" fill="#2132BD"/>
+        </svg>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--grey-5);">48px</span>
+      </div>
+
+      <!-- 32px -->
+      <div style="text-align:center;">
+        <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 8px;">
+          <rect x="8" y="8" width="48" height="48" rx="10" fill="#EDDF2D"/>
+          <circle cx="32" cy="32" r="10" fill="#2132BD"/>
+        </svg>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--grey-5);">32px</span>
+      </div>
+
+      <!-- 16px -->
+      <div style="text-align:center;">
+        <svg width="16" height="16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto 8px;">
+          <rect x="8" y="8" width="48" height="48" rx="10" fill="#EDDF2D"/>
+          <circle cx="32" cy="32" r="10" fill="#2132BD"/>
+        </svg>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--grey-5);">16px</span>
+      </div>
+
+      <div style="font-family:var(--mono);font-size:11px;color:var(--grey-5);max-width:220px;line-height:1.6;">
+        SVG inline in &lt;head&gt;<br>
+        No external file required<br>
+        Works in light and dark mode
+      </div>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:24px;">
+    <span class="block-label">SVG code — favicon</span>
+    <pre style="font-family:var(--mono);font-size:11px;background:var(--grey-0);border:1px solid var(--grey-1);padding:16px;border-radius:6px;overflow-x:auto;line-height:1.8;">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"&gt;
+  &lt;rect x="8" y="8" width="48" height="48" rx="10" fill="#EDDF2D"/&gt;
+  &lt;circle cx="32" cy="32" r="10" fill="#2132BD"/&gt;
+&lt;/svg&gt;</pre>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+<section class="section" id="social-avatars" aria-label="Social media avatars">
+  <div class="section-header">
+    <span class="section-num">15</span>
+    <span class="section-label">Social Media Avatars</span>
+  </div>
+  <h2>Social avatars — noel·IA·biz</h2>
+  <p class="section-intro">In small spaces the full logo does not work. The avatar uses the pattern <strong>noel·IA·biz</strong> stacked on a black background — in three backgrounds depending on context.</p>
+
+  <div class="block">
+    <span class="block-label">Avatar kit — all sizes and variants</span>
+    <div style="overflow-x:auto;margin-top:16px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 780" font-family="Georgia, serif" style="width:100%;max-width:860px;display:block;" role="img" aria-label="noelia.biz social media avatar kit — square and circular variants in black, yellow and blue">
+        <defs><style>.avlbl{font-family:'Courier New',monospace;font-size:10px;fill:#999;letter-spacing:0.1em;text-transform:uppercase}.avplat{font-family:'Courier New',monospace;font-size:11px;fill:#2132BD;letter-spacing:0.08em;font-weight:bold}.avsp{font-family:'Courier New',monospace;font-size:10px;fill:#888}.avst{font-family:'Courier New',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase}</style></defs>
+        <text x="40" y="32" class="avst" fill="#aaa">NOELIA.BIZ · SOCIAL MEDIA AVATAR KIT · 2026</text>
+        <text x="40" y="58" class="avst" fill="#2132BD">Avatar — Square (LinkedIn, Twitter/X, Facebook)</text>
+        <rect x="40" y="70" width="160" height="160" rx="16" fill="#111111"/>
+        <text x="120" y="126" text-anchor="middle" font-family="Georgia, serif" font-size="32px" font-weight="300" fill="#FFFFFF" letter-spacing="-0.02em">noel</text>
+        <text x="108" y="162" text-anchor="middle" font-family="Georgia, serif" font-size="32px" font-weight="300" fill="#FFFFFF" letter-spacing="-0.02em">ia</text>
+        <text x="123" y="162" font-family="Georgia, serif" font-size="32px" font-weight="300" fill="#EDDF2D">.</text>
+        <rect x="86" y="170" width="68" height="26" rx="6" fill="#EDDF2D"/>
+        <text x="120" y="189" text-anchor="middle" font-family="Arial, sans-serif" font-size="16px" font-weight="700" fill="#111111">biz</text>
+        <text x="120" y="222" text-anchor="middle" class="avlbl">1:1 · 160px</text>
+        <rect x="230" y="100" width="80" height="80" rx="8" fill="#111111"/>
+        <text x="270" y="130" text-anchor="middle" font-family="Georgia, serif" font-size="16px" font-weight="300" fill="#FFFFFF" letter-spacing="-0.02em">noel</text>
+        <text x="263" y="148" text-anchor="middle" font-family="Georgia, serif" font-size="16px" font-weight="300" fill="#FFFFFF">ia</text>
+        <text x="272" y="148" font-family="Georgia, serif" font-size="16px" fill="#EDDF2D">.</text>
+        <rect x="252" y="152" width="36" height="14" rx="3" fill="#EDDF2D"/>
+        <text x="270" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="9px" font-weight="700" fill="#111">biz</text>
+        <text x="270" y="198" text-anchor="middle" class="avlbl">80px</text>
+        <rect x="340" y="116" width="48" height="48" rx="6" fill="#111111"/>
+        <text x="364" y="134" text-anchor="middle" font-family="Georgia, serif" font-size="10px" font-weight="300" fill="#FFFFFF">noel</text>
+        <text x="360" y="147" text-anchor="middle" font-family="Georgia, serif" font-size="10px" fill="#FFFFFF">ia</text>
+        <text x="366" y="147" font-family="Georgia, serif" font-size="10px" fill="#EDDF2D">.</text>
+        <rect x="352" y="150" width="24" height="9" rx="2" fill="#EDDF2D"/>
+        <text x="364" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="6px" font-weight="700" fill="#111">biz</text>
+        <text x="364" y="182" text-anchor="middle" class="avlbl">48px</text>
+        <rect x="414" y="124" width="32" height="32" rx="4" fill="#111111"/>
+        <text x="430" y="136" text-anchor="middle" font-family="Georgia, serif" font-size="7px" fill="#FFFFFF">noel</text>
+        <text x="427" y="146" text-anchor="middle" font-family="Georgia, serif" font-size="7px" fill="#FFFFFF">ia</text>
+        <text x="432" y="146" font-family="Georgia, serif" font-size="7px" fill="#EDDF2D">.</text>
+        <rect x="421" y="149" width="18" height="6" rx="1" fill="#EDDF2D"/>
+        <text x="430" y="154" text-anchor="middle" font-family="Arial, sans-serif" font-size="4px" font-weight="700" fill="#111">biz</text>
+        <text x="430" y="172" text-anchor="middle" class="avlbl">32px</text>
+        <text x="40" y="258" class="avst" fill="#2132BD">Avatar — Circular (Instagram, WhatsApp, Threads)</text>
+        <circle cx="120" cy="330" r="80" fill="#111111"/>
+        <text x="120" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="32px" font-weight="300" fill="#FFFFFF" letter-spacing="-0.02em">noel</text>
+        <text x="108" y="346" text-anchor="middle" font-family="Georgia, serif" font-size="32px" font-weight="300" fill="#FFFFFF" letter-spacing="-0.02em">ia</text>
+        <text x="123" y="346" font-family="Georgia, serif" font-size="32px" font-weight="300" fill="#EDDF2D">.</text>
+        <rect x="86" y="354" width="68" height="26" rx="6" fill="#EDDF2D"/>
+        <text x="120" y="373" text-anchor="middle" font-family="Arial, sans-serif" font-size="16px" font-weight="700" fill="#111111">biz</text>
+        <text x="120" y="426" text-anchor="middle" class="avlbl">Circle · 160px</text>
+        <circle cx="270" cy="330" r="60" fill="#111111"/>
+        <text x="270" y="314" text-anchor="middle" font-family="Georgia, serif" font-size="22px" font-weight="300" fill="#FFFFFF">noel</text>
+        <text x="260" y="336" text-anchor="middle" font-family="Georgia, serif" font-size="22px" font-weight="300" fill="#FFFFFF">ia</text>
+        <text x="272" y="336" font-family="Georgia, serif" font-size="22px" fill="#EDDF2D">.</text>
+        <rect x="247" y="342" width="48" height="18" rx="4" fill="#EDDF2D"/>
+        <text x="271" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#111">biz</text>
+        <text x="270" y="406" text-anchor="middle" class="avlbl">120px</text>
+        <circle cx="380" cy="338" r="40" fill="#111111"/>
+        <text x="380" y="326" text-anchor="middle" font-family="Georgia, serif" font-size="14px" font-weight="300" fill="#FFFFFF">noel</text>
+        <text x="374" y="341" text-anchor="middle" font-family="Georgia, serif" font-size="14px" fill="#FFFFFF">ia</text>
+        <text x="382" y="341" font-family="Georgia, serif" font-size="14px" fill="#EDDF2D">.</text>
+        <rect x="363" y="345" width="34" height="12" rx="3" fill="#EDDF2D"/>
+        <text x="380" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="8px" font-weight="700" fill="#111">biz</text>
+        <text x="380" y="394" text-anchor="middle" class="avlbl">80px</text>
+        <line x1="480" y1="260" x2="480" y2="460" stroke="#e8e8e8" stroke-width="1"/>
+        <text x="500" y="278" class="avst" fill="#2132BD">Platform Specifications</text>
+        <text x="500" y="302" class="avplat">LinkedIn</text>
+        <text x="500" y="318" class="avsp">Profile photo: 400×400px (displays as circle)</text>
+        <text x="500" y="332" class="avsp">Use: circular version, black bg, noel·IA·biz</text>
+        <text x="500" y="356" class="avplat">Instagram / Threads</text>
+        <text x="500" y="372" class="avsp">Profile photo: 320×320px (displays as circle)</text>
+        <text x="500" y="386" class="avsp">Use: circular version, black bg, noel·IA·biz</text>
+        <text x="500" y="410" class="avplat">Twitter / X</text>
+        <text x="500" y="426" class="avsp">Profile photo: 400×400px (displays as circle)</text>
+        <text x="500" y="440" class="avsp">Use: circular version, black bg, noel·IA·biz</text>
+        <text x="700" y="302" class="avplat">WhatsApp</text>
+        <text x="700" y="318" class="avsp">Profile photo: 640×640px (circle)</text>
+        <text x="700" y="332" class="avsp">Use: circular, black bg</text>
+        <text x="700" y="356" class="avplat">YouTube</text>
+        <text x="700" y="372" class="avsp">Channel icon: 800×800px (circle)</text>
+        <text x="700" y="386" class="avsp">Use: circular, black bg</text>
+        <text x="700" y="410" class="avplat">Substack / Newsletter</text>
+        <text x="700" y="426" class="avsp">Logo: 256×256px (square or circle)</text>
+        <text x="700" y="440" class="avsp">Use: square, black bg</text>
+        <line x1="40" y1="458" x2="880" y2="458" stroke="#e8e8e8" stroke-width="1"/>
+        <text x="40" y="480" class="avst" fill="#2132BD">Yellow Variant — Stories, Highlights, Light Contexts</text>
+        <rect x="40" y="496" width="100" height="100" rx="12" fill="#EDDF2D"/>
+        <text x="90" y="538" text-anchor="middle" font-family="Georgia, serif" font-size="20px" font-weight="300" fill="#111111" letter-spacing="-0.02em">noel</text>
+        <text x="82" y="558" text-anchor="middle" font-family="Georgia, serif" font-size="20px" font-weight="300" fill="#111111">ia</text>
+        <text x="93" y="558" font-family="Georgia, serif" font-size="20px" fill="#2132BD">.</text>
+        <rect x="62" y="564" width="56" height="20" rx="4" fill="#111111"/>
+        <text x="90" y="578" text-anchor="middle" font-family="Arial, sans-serif" font-size="12px" font-weight="700" fill="#EDDF2D">biz</text>
+        <text x="90" y="612" text-anchor="middle" class="avlbl">Yellow bg</text>
+        <circle cx="210" cy="546" r="50" fill="#EDDF2D"/>
+        <text x="210" y="530" text-anchor="middle" font-family="Georgia, serif" font-size="20px" font-weight="300" fill="#111111">noel</text>
+        <text x="202" y="550" text-anchor="middle" font-family="Georgia, serif" font-size="20px" fill="#111111">ia</text>
+        <text x="213" y="550" font-family="Georgia, serif" font-size="20px" fill="#2132BD">.</text>
+        <rect x="182" y="556" width="56" height="20" rx="4" fill="#111111"/>
+        <text x="210" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="12px" font-weight="700" fill="#EDDF2D">biz</text>
+        <text x="210" y="612" text-anchor="middle" class="avlbl">Yellow circle</text>
+        <rect x="300" y="496" width="100" height="100" rx="12" fill="#2132BD"/>
+        <text x="350" y="538" text-anchor="middle" font-family="Georgia, serif" font-size="20px" font-weight="300" fill="#FFFFFF" letter-spacing="-0.02em">noel</text>
+        <text x="342" y="558" text-anchor="middle" font-family="Georgia, serif" font-size="20px" font-weight="300" fill="#FFFFFF">ia</text>
+        <text x="353" y="558" font-family="Georgia, serif" font-size="20px" fill="#EDDF2D">.</text>
+        <rect x="322" y="564" width="56" height="20" rx="4" fill="#EDDF2D"/>
+        <text x="350" y="578" text-anchor="middle" font-family="Arial, sans-serif" font-size="12px" font-weight="700" fill="#111111">biz</text>
+        <text x="350" y="612" text-anchor="middle" class="avlbl">Blue bg</text>
+        <line x1="40" y1="632" x2="880" y2="632" stroke="#e8e8e8" stroke-width="1"/>
+        <text x="40" y="654" class="avst" fill="#2132BD">Avatar Usage Notes</text>
+        <text x="40" y="674" font-family="'Courier New', monospace" font-size="11px" fill="#444">Default: black background — works on any platform, any mode (light/dark).</text>
+        <text x="40" y="692" font-family="'Courier New', monospace" font-size="11px" fill="#444">Yellow bg: use for Stories, Highlights covers, or when you want warmth/energy.</text>
+        <text x="40" y="710" font-family="'Courier New', monospace" font-size="11px" fill="#444">Blue bg: use for LinkedIn banners, email headers, or branded presentations.</text>
+        <text x="40" y="728" font-family="'Courier New', monospace" font-size="11px" fill="#444">Always export at 2x the platform minimum — e.g. LinkedIn = 800×800px, not 400×400px.</text>
+        <text x="40" y="746" font-family="'Courier New', monospace" font-size="11px" fill="#2132BD">★  "noel·IA·biz" — the IA in noelia is your positioning hidden in plain sight.</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:28px;">
+    <span class="block-label">Platform specs</span>
+    <div class="table-wrap"><table>
+      <tr><th>Platform</th><th>Minimum size</th><th>Shape</th><th>Variant</th></tr>
+      <tr><td>LinkedIn</td><td>400×400px</td><td>Círculo</td><td>Black o Blue</td></tr>
+      <tr><td>Instagram / Threads</td><td>320×320px</td><td>Círculo</td><td>Black (default)</td></tr>
+      <tr><td>Twitter / X</td><td>400×400px</td><td>Círculo</td><td>Black (default)</td></tr>
+      <tr><td>WhatsApp</td><td>640×640px</td><td>Círculo</td><td>Black (default)</td></tr>
+      <tr><td>YouTube</td><td>800×800px</td><td>Círculo</td><td>Black (default)</td></tr>
+      <tr><td>Substack</td><td>256×256px</td><td>Cuadrado</td><td>Black (default)</td></tr>
+      <tr><td>Stories / Highlights</td><td>cualquier</td><td>Círculo</td><td>Yellow</td></tr>
+    </table></div>
+  </div>
+
+  <div class="block" style="margin-top:20px;">
+    <span class="block-label">Usage rule</span>
+    <p>Always export at <strong>double the minimum size</strong> of the platform for Retina sharpness. The black avatar works in light and dark mode — is the default. Yellow communicates energy — ideal for Stories y Highlights.</p>
+    <p style="margin-top:8px;font-family:var(--mono);font-size:12px;color:var(--blue);">★ "noel·IA·biz" — la IA vive dentro de noelia en French and Spanish. Posicionamiento oculto a simple vista.</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+// Scroll spy — highlight active section in sidebar
+const sections = document.querySelectorAll('.section[id]');
+const navLinks = document.querySelectorAll('.sidebar a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -75% 0px', threshold: 0 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

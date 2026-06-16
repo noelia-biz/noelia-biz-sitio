@@ -1,0 +1,13 @@
+# Netlify redirects
+/           /en/    302
+/en         /en/    301
+/fr         /fr/    301
+/es         /es/    301
+/en/audit   /en/audit/  301
+/fr/audit   /fr/audit/  301
+/es/audit   /es/audit/  301
+/brand-os   /brand-os/  301
+
+# Subdomain redirects
+https://fr.noelia.biz/* https://noelia.biz/fr/:splat 301!
+https://en.noelia.biz/* https://noelia.biz/en/:splat 301!

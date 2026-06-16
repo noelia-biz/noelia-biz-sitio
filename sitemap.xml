@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://noelia.biz/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/en/audit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/audit/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/audit/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/audit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/audit/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/fr/audit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/audit/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/audit/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/audit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/audit/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/es/audit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/audit/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/audit/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/audit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/audit/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/en/reputation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/reputation/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/fr/reputation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/reputation/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/es/reputation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/reputation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/reputation/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/en/geo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/geo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/geo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/geo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/geo/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/fr/geo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/geo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/geo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/geo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/geo/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/es/geo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://noelia.biz/en/geo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/geo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://noelia.biz/es/geo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/geo/"/>
+  </url>
+  <url>
+    <loc>https://noelia.biz/brand-os/</loc>
+  </url>
+  <url><loc>https://noelia.biz/en/insights/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://noelia.biz/fr/insights/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://noelia.biz/es/insights/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+</urlset>
