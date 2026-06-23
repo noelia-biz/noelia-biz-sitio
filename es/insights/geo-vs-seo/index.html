@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO / GEO -->
+  <title>GEO vs SEO: el SEO te hacía encontrar. El GEO te hace citar. · noelia.biz</title>
+  <meta name="description" content="El SEO nos enseñó a formular mejor una pregunta para llegar a la primera página. El GEO le enseña a las máquinas a confiar en tu marca lo suficiente como para citarla. La diferencia es quién habla." />
+  <link rel="canonical" href="https://noelia.biz/es/insights/geo-vs-seo/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://noelia.biz/en/insights/geo-vs-seo/" />
+  <link rel="alternate" hreflang="fr" href="https://noelia.biz/fr/insights/geo-vs-seo/" />
+  <link rel="alternate" hreflang="es" href="https://noelia.biz/es/insights/geo-vs-seo/" />
+  <link rel="alternate" hreflang="x-default" href="https://noelia.biz/en/insights/geo-vs-seo/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="noelia.biz" />
+  <meta property="og:title" content="GEO vs SEO: el SEO te hacía encontrar. El GEO te hace citar." />
+  <meta property="og:description" content="El SEO nos enseñó a formular mejor una pregunta. El GEO le enseña a las máquinas a citarte. La diferencia es quién habla." />
+  <meta property="og:url" content="https://noelia.biz/es/insights/geo-vs-seo/" />
+  <meta property="og:image" content="https://noelia.biz/assets/images/card.jpg" />
+  <meta property="article:published_time" content="2026-06-23" />
+  <meta property="article:author" content="Noelia Santa Ana" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:   #111111;
+      --blue:  #2132BD;
+      --yellow:#EDDF2D;
+      --dark:  #0E0E14;
+      --paper: #FAFAF8;
+      --mid:   #F2F2EF;
+      --muted: #6B6B6B;
+      --max:   1200px;
+      --col:   680px;
+    }
+
+    html { font-size: 16px; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+      height: 72px;
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      width: 100%; max-width: var(--max);
+      margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand-css { text-decoration: none; display: flex; align-items: center; }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-switch {
+      display: flex; gap: 4px;
+    }
+    .lang-switch a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem; letter-spacing: .08em;
+      padding: 6px 10px; border: 1px solid rgba(17,17,17,.18);
+      border-radius: 4px; text-decoration: none; color: var(--ink);
+    }
+    .lang-switch a.active {
+      background: var(--ink); color: var(--paper);
+      border-color: var(--ink);
+    }
+    .btn-audit {
+      background: var(--ink); color: var(--paper);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+      padding: 12px 22px; border-radius: 100px;
+      text-decoration: none; white-space: nowrap;
+    }
+    .btn-audit:hover { background: var(--blue); }
+
+    /* Compare table */
+    .compare-table {
+      margin: 2.4em 0;
+      border: 1px solid rgba(17,17,17,.12);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .compare-header,
+    .compare-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 1fr;
+      align-items: center;
+    }
+    .compare-header {
+      background: var(--paper);
+      border-bottom: 2px solid rgba(17,17,17,.1);
+      padding: 16px 24px;
+    }
+    .compare-header .col-empty { /* empty first cell */ }
+    .col-label {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--muted);
+      padding: 0 16px;
+    }
+    .col-label--geo {
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .compare-row {
+      padding: 14px 24px;
+      border-top: 1px solid rgba(17,17,17,.07);
+      font-size: .95rem;
+      line-height: 1.5;
+      gap: 0;
+    }
+    .compare-row:nth-child(even) { background: var(--mid); }
+    .compare-row:nth-child(odd)  { background: #fff; }
+    .row-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .compare-row span:nth-child(2) {
+      padding: 0 16px;
+      color: var(--muted);
+      border-left: 1px solid rgba(17,17,17,.08);
+      border-right: 1px solid rgba(17,17,17,.08);
+    }
+    .compare-row span:nth-child(3) {
+      padding: 0 16px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .highlight {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--yellow);
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--ink);
+    }
+
+    /* Metrics grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 1.6em 0 2.4em;
+    }
+    .metric-card {
+      background: var(--mid);
+      border-radius: 8px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .metric-number {
+      font-family: 'Fraunces', serif;
+      font-size: 2.4rem; font-weight: 300;
+      color: var(--blue); line-height: 1;
+    }
+    .metric-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink); font-weight: 500;
+    }
+    .metric-context {
+      font-size: .85rem; color: var(--muted); line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+      .metrics-grid { grid-template-columns: 1fr; }
+      .compare-header, .compare-row { grid-template-columns: 100px 1fr 1fr; }
+    }
+
+    /* Title explainer */
+    .article-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      max-width: var(--max); margin: 0 auto;
+      padding: 20px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .breadcrumb a { color: var(--blue); text-decoration: none; }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── ARTICLE HERO ── */
+    .article-hero {
+      max-width: var(--max); margin: 0 auto;
+      padding: 8px 32px 56px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 32px;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue); border: 1px solid var(--blue);
+      padding: 4px 10px; border-radius: 4px;
+    }
+    .article-meta-info {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .article-meta-info span { margin: 0 8px; opacity: .4; }
+
+    .article-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      max-width: var(--col);
+      margin-bottom: 32px;
+    }
+    .article-title em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .article-lead {
+      font-size: 1.2rem; line-height: 1.65;
+      max-width: 640px;
+      color: var(--ink);
+      margin-bottom: 40px;
+    }
+    .article-lead strong { font-weight: 600; }
+
+    .rule { border: none; border-top: 1px solid rgba(17,17,17,.12); margin: 0; }
+
+    /* ── AUTHOR ── */
+    .author-row {
+      max-width: var(--max); margin: 0 auto;
+      padding: 32px 32px 48px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .author-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+    }
+    .author-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem; font-weight: 400;
+      display: block; margin-bottom: 2px;
+    }
+    .author-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 32px 80px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0 64px;
+    }
+    .article-sidebar { /* intentionally empty — reserved for future TOC */ }
+
+    .article-content { max-width: var(--col); }
+
+    .article-content p {
+      font-size: 1.05rem; line-height: 1.8;
+      margin-bottom: 1.6em;
+      color: var(--ink);
+    }
+    .article-content h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.9rem; font-weight: 400;
+      line-height: 1.2; letter-spacing: -.01em;
+      margin: 2.4em 0 .8em;
+      color: var(--ink);
+    }
+    .article-content h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem; font-weight: 400;
+      font-style: italic;
+      margin: 2em 0 .6em;
+      color: var(--ink);
+    }
+    .article-content strong { font-weight: 600; }
+    .article-content em { font-style: italic; color: var(--blue); }
+
+    /* Pull quote */
+    .pullquote {
+      border-left: 3px solid var(--blue);
+      margin: 2.4em 0;
+      padding: 16px 0 16px 28px;
+    }
+    .pullquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 1.35rem !important;
+      font-style: italic;
+      line-height: 1.5 !important;
+      color: var(--ink) !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Definition box */
+    .definition-box {
+      background: var(--mid);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 2.4em 0;
+    }
+    .definition-box .def-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 10px; display: block;
+    }
+    .definition-box p {
+      font-size: 1rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      margin: 1.6em 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .checklist li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 1rem; line-height: 1.6;
+    }
+    .checklist li::before {
+      content: '→';
+      color: var(--blue);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .85rem;
+      flex-shrink: 0;
+      margin-top: .15em;
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      background: var(--ink);
+      border-radius: 12px;
+      padding: 56px 48px;
+      margin: 3.2em 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .cta-block .cta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--yellow);
+    }
+    .cta-block h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300; line-height: 1.2;
+      color: var(--paper);
+      margin: 0 !important;
+    }
+    .cta-block p {
+      color: rgba(250,250,248,.7);
+      font-size: .95rem !important;
+      margin-bottom: 0 !important;
+      max-width: 480px;
+    }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--yellow); color: var(--ink);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+      font-weight: 500;
+      padding: 14px 28px; border-radius: 100px;
+      text-decoration: none;
+    }
+    .btn-cta:hover { background: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--mid);
+      padding: 64px 32px 32px;
+    }
+    .foot-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px repeat(3, 1fr);
+      gap: 40px;
+    }
+    .foot-brand img { margin-bottom: 16px; display: block; }
+    .foot-tagline {
+      font-size: .9rem; line-height: 1.6;
+      color: var(--muted);
+    }
+    .foot-col h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot-col ul a {
+      font-size: .9rem; color: var(--ink); text-decoration: none;
+    }
+    .foot-col ul a:hover { color: var(--blue); }
+    .foot-bottom {
+      max-width: var(--max); margin: 48px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(17,17,17,.1);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .foot-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .article-body { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+      .data-row { grid-template-columns: 1fr; }
+      .foot-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .article-title { font-size: 2.4rem; }
+      .cta-block { padding: 36px 28px; }
+      .foot-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- JSON-LD Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://noelia.biz/es/insights/geo-vs-seo/",
+    "headline": "GEO vs SEO: el SEO te hacía encontrar. El GEO te hace citar.",
+    "description": "El SEO nos enseñó a formular mejor una pregunta para llegar a la primera página. El GEO le enseña a las máquinas a confiar en tu marca lo suficiente como para citarla.",
+    "datePublished": "2026-06-23",
+    "dateModified": "2026-06-23",
+    "author": { "@id": "https://noelia.biz/#noelia" },
+    "publisher": { "@id": "https://noelia.biz/#service" },
+    "inLanguage": "es",
+    "url": "https://noelia.biz/es/insights/geo-vs-seo/",
+    "mainEntityOfPage": "https://noelia.biz/es/insights/geo-vs-seo/",
+    "keywords": ["GEO", "SEO", "optimización motores generativos", "visibilidad IA", "reputación de marca", "ChatGPT citas"]
+  }
+  </script>
+
+  <!-- JSON-LD FAQ (imán de citas) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es el GEO (Generative Engine Optimization)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El GEO es la práctica de hacer que una marca sea citable por motores de IA como ChatGPT, Claude, Perplexity y Google AI Overviews. El SEO te hace encontrable en una página de resultados. El GEO te hace citable dentro de una respuesta generada por IA — a través de contenido estructurado, verificable y con autoridad."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre GEO y SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El SEO optimiza para posicionar enlaces en una página de resultados. El GEO optimiza para ser citado dentro de una respuesta generada por IA. Comparten la misma base — contenido claro, estructurado y con autoridad — pero el GEO añade afirmaciones extraíbles, datos estructurados y autoridad de fuente para que los modelos de IA atribuyan la respuesta a tu marca."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo hacer que las IAs citen mi marca?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para que los motores de IA citen tu marca, tu contenido necesita cuatro elementos: una afirmación declarativa clara (no una opinión), un dato verificable, una entidad de marca consistente en todos tus canales, y marcado estructurado (JSON-LD) que le diga a los modelos de IA quién eres y qué sabes."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/es/" class="brand-css">
+        <img src="/assets/images/noelIA-biz-brand-reputation-geo-strategist-paris.png"
+             alt="noelIA.biz — Brand Reputation &amp; GEO Strategist · Paris · EN/FR/ES"
+             height="28" style="display:block;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/es/geo/">GEO</a></li>
+        <li><a href="/es/reputation/">Reputación</a></li>
+        <li><a href="/es/method/">Método</a></li>
+        <li><a href="/es/insights/">Insights</a></li>
+        <li><a href="/es/about/">Sobre mí</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/en/insights/geo-vs-seo/">EN</a>
+          <a href="/fr/insights/geo-vs-seo/">FR</a>
+          <a href="/es/insights/geo-vs-seo/" class="active">ES</a>
+        </div>
+        <a href="/es/audit/" class="btn-audit">Auditoría gratis →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="/es/">Inicio</a>
+    <span>/</span>
+    <a href="/es/insights/">Insights</a>
+    <span>/</span>
+    GEO vs SEO
+  </div>
+
+  <!-- HERO -->
+  <header class="article-hero">
+    <div class="article-meta">
+      <span class="tag">GEO</span>
+      <div class="article-meta-info">
+        23 de junio de 2026 <span>·</span> 10 min de lectura
+      </div>
+    </div>
+
+    <h1 class="article-title">
+      GEO vs SEO:<br>
+      el SEO te hacía <em>encontrar.</em><br>
+      el GEO te hace <em>citar.</em>
+    </h1>
+
+    <p class="article-subtitle">La diferencia es quién habla.</p>
+
+    <p class="article-lead">
+      El SEO nos enseñó a formular una pregunta lo bastante bien para llegar a la primera página. El GEO le enseña a una máquina a confiar en tu marca lo suficiente para <strong>citarla en voz alta</strong>. Lo que los separa no es un nuevo acrónimo — es una nueva psicología.
+    </p>
+  </header>
+
+  <hr class="rule" style="max-width:1200px; margin: 0 auto 0; padding: 0 32px;" />
+
+  <!-- AUTHOR -->
+  <div class="author-row">
+    <img src="/assets/images/noelia-santa-ana.jpg"
+         alt="Noelia Santa Ana"
+         class="author-avatar" />
+    <div>
+      <span class="author-name">Noelia Santa Ana</span>
+      <span class="author-title">Estratega Reputación de Marca &amp; GEO · EN/FR/ES</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="article-body">
+    <aside class="article-sidebar"></aside>
+
+    <article class="article-content">
+
+      <p>En 2004, Google ganó. No por mejor marketing — por mejores respuestas. Para 2006, <strong>"googlear" ya era un verbo</strong>, y la empresa controlaba más del 60% del tráfico de búsqueda en Estados Unidos.</p>
+
+      <p>Ese dato importó más que el algoritmo detrás. Antes de Google, los marketeros vivíamos en un mundo ruidoso — jingles, llamadas en frío, banner tras banner. La búsqueda se sentía como lo contrario. <em>Tú</em> escribías la pregunta. <em>Tú</em> tenías la palabra clave. Por primera vez, sentíamos que recuperábamos el control sobre qué información nos llegaba, en lugar de simplemente recibirla a gritos.</p>
+
+      <p>Ese comportamiento tuvo nombre casi de inmediato: la <strong>query de búsqueda</strong>. Y le enseñó a toda una generación — marketeros y buscadores por igual — una habilidad muy concreta. Formula bien tu pregunta, y la respuesta aparece en la primera página. Casi nadie pasaba a la segunda. Así que nos adaptamos. Aprendimos a hablar el dialecto del algoritmo, no al revés.</p>
+
+      <p>El SEO nunca fue solo una disciplina de marketing. Era una alfabetización. Saber pedirle algo a una máquina, en el idioma de la máquina.</p>
+
+      <div class="pullquote">
+        <p>Aprendimos a hablar el idioma del motor. Ahora el motor está aprendiendo a hablar el nuestro — y eso cambia quién sostiene la confianza.</p>
+      </div>
+
+      <h2>Luego el prompt reemplazó la query</h2>
+
+      <p>Avancemos a 2023. Llega una nueva interfaz — no un campo de búsqueda, sino una conversación. Y cambia algo estructural: <strong>ya no necesitas formular una buena query</strong>. Simplemente preguntas. En lenguaje natural. Como le preguntarías a un colega.</p>
+
+      <p>ChatGPT procesa aproximadamente <strong>2.500 millones de prompts al día</strong>. Según Ahrefs, eso ya equivale al 12% del volumen de búsqueda de Google — y creciendo. Lo más revelador: el 65% de esos prompts son queries de tipo búsqueda. La gente no solo conversa. Busca. Toma decisiones. Y cada vez más, no hace clic para verificar.</p>
+
+      <p>Ese último punto es el que la mayoría de las marcas aún no ha asimilado.</p>
+
+      <div class="compare-table">
+        <div class="compare-header">
+          <span class="col-empty"></span>
+          <span class="col-label">SEO</span>
+          <span class="col-label col-label--geo">GEO</span>
+        </div>
+        <div class="compare-row">
+          <span class="row-label">Objetivo</span>
+          <span>Posicionar un link en página 1</span>
+          <span>Convertirte en la respuesta citada</span>
+        </div>
+        <div class="compare-row">
+          <span class="row-label">Audiencia</span>
+          <span>El humano que hace clic</span>
+          <span>La IA que lee tu contenido</span>
+        </div>
+        <div class="compare-row">
+          <span class="row-label">Moneda</span>
+          <span>Keywords &amp; backlinks</span>
+          <span>Afirmaciones, estructura &amp; confianza</span>
+        </div>
+        <div class="compare-row">
+          <span class="row-label">Métrica clave</span>
+          <span>Posición 1 en Google</span>
+          <span>Nombrado en la respuesta IA</span>
+        </div>
+        <div class="compare-row">
+          <span class="row-label">Rol reputación</span>
+          <span>Útil pero opcional</span>
+          <span class="highlight">Fundación no negociable</span>
+        </div>
+      </div>
+
+      <p>Dos juegos distintos. Dos rankings distintos. Los datos lo hacen concreto:</p>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-number">−58%</span>
+          <span class="metric-title">Caída del CTR orgánico</span>
+          <span class="metric-context">Desde el lanzamiento de AI Overviews de Google en 2024. Menos clics aunque estés en posición 1.</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-number">17%</span>
+          <span class="metric-title">Solapamiento actual</span>
+          <span class="metric-context">Entre el top-10 de Google y lo que las AI Overviews citan realmente. Antes era el 70%.</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-number">2.500M</span>
+          <span class="metric-title">Prompts al día</span>
+          <span class="metric-context">Procesa ChatGPT diariamente. El 65% son queries de búsqueda, no solo conversaciones.</span>
+        </div>
+      </div>
+
+      <h2>La psicología detrás de por qué confiamos en las respuestas de la IA</h2>
+
+      <p>Este cambio ha ocurrido más rápido de lo que nadie predijo. No es solo comodidad — es la forma en que los motores generativos comunican. No dan una lista. Dan una respuesta. En un tono seguro, fluido, con autoridad.</p>
+
+      <p>Los investigadores lo llaman la <strong>ilusión de autoridad</strong>: calibramos nuestra confianza no solo a lo que se dice, sino a la seguridad con que se dice. El mismo mecanismo que nos hacía confiar en la recomendación entusiasta de un amigo que sabe del tema ahora nos hace confiar en la respuesta de la IA — aunque no podamos verificar la fuente.</p>
+
+      <p>No es un fenómeno nuevo. La sociología lo tiene documentado desde hace décadas: delegamos nuestro juicio en las instituciones que percibimos como fiables. La IA se convirtió, muy rápido, en una de ellas.</p>
+
+      <p>Por eso la pregunta del GEO es fundamentalmente una <strong>pregunta de reputación de marca</strong>. Las marcas que la IA cita son las que han construido suficiente presencia estructurada, coherente y verificable para que un modelo de lenguaje las asocie a un tema. No es hackear un algoritmo. Es lo mismo de siempre: construir autoridad genuina. Solo que ahora la audiencia no es solo humana.</p>
+
+      <div class="pullquote">
+        <p>Las marcas que la IA cita son las que construyeron suficiente presencia estructurada, coherente y verificable para que un modelo de lenguaje las asociara a un tema. Eso no es un truco. Es autoridad.</p>
+      </div>
+
+      <h2>Qué requiere el GEO realmente — y qué no</h2>
+
+      <div class="definition-box">
+        <span class="def-label">Definición</span>
+        <p><strong>GEO (Generative Engine Optimization)</strong> es la práctica de hacer que una marca sea citable por motores de IA como ChatGPT, Claude, Perplexity y Google AI Overviews. El SEO te hace encontrable en una página de resultados. El GEO te hace citable dentro de una respuesta generada por IA — a través de contenido estructurado, verificable y con autoridad.</p>
+      </div>
+
+      <p>El GEO no requiere una estrategia completamente distinta. Requiere un marco diferente sobre el mismo trabajo. Aquí está lo que realmente mueve la aguja:</p>
+
+      <ul class="checklist">
+        <li><strong>Afirmaciones citables.</strong> Cada pieza de contenido necesita al menos una frase declarativa autónoma con un dato o definición. Esa es la frase que una IA extrae y atribuye. Las opiniones y las afirmaciones vagas no se citan — se ignoran. <em>Este artículo, por ejemplo, contiene esta afirmación citable: "La primera página de Google te da solo un 62% de probabilidades de aparecer en una respuesta de ChatGPT." Esa frase tiene un número, una fuente y un resultado claro. Una IA puede extraerla y atribuirla. "Rankear en Google ya no es tan importante" — eso es una opinión. No se cita.</em></li>
+        <li><strong>Entidad consistente.</strong> Google y los modelos de IA construyen una "entidad de conocimiento" de quién eres a partir de la repetición en tu sitio, LinkedIn, schema y menciones. Descripciones inconsistentes entre canales crean ruido. Una identidad clara, repetida exactamente igual, crea señal.</li>
+        <li><strong>Marcado estructurado.</strong> El JSON-LD (Person, ProfessionalService, FAQPage) le dice explícitamente a los crawlers de IA quién eres, qué sabes y por qué deberían confiar en ti. Es la diferencia entre susurrar y hablar claramente.</li>
+        <li><strong>Fuentes con autoridad.</strong> Los modelos de IA ponderan sus citas por calidad de la fuente. Aparecer en sitios terceros creíbles, tener perfiles verificados y enlazar a investigación original aumenta tu probabilidad de citación.</li>
+        <li><strong>Contenido estructurado en preguntas.</strong> La IA responde preguntas. Si tus H2 coinciden con las preguntas literales que la gente le hace a la IA, estás posicionando tu contenido como la respuesta. No cerca de la respuesta — la respuesta.</li>
+        <li><strong>Reseñas y menciones de terceros.</strong> Los modelos de IA no solo leen tu propio contenido — leen lo que otros dicen de ti. Las reseñas en Google, G2, Trustpilot y directorios del sector le señalan a un modelo de lenguaje que tu marca es real, fiable y merece ser citada. Una marca sin reseñas es una marca sin prueba social en los datos de entrenamiento de la IA.</li>
+      </ul>
+
+      <h2>Por qué las reseñas son infraestructura GEO</h2>
+
+      <p>Este es el punto que la mayoría de las marcas ignora cuando escucha hablar de GEO. Piensan: contenido, schema, keywords. Olvidan que los modelos de IA fueron entrenados con todo el web — incluyendo plataformas de reseñas, foros, directorios y agregadores.</p>
+
+      <p>Cuando ChatGPT o Perplexity decide si citar una marca, uno de los señales que pondera es la <strong>prueba social a escala</strong>: cuántas fuentes independientes mencionan esta marca de forma positiva, consistente y con datos específicos. Una nota de Brevo que sube de 3,0 a 4,5 estrellas no es solo una victoria de reputación para humanos que consultan un comparador. Es un dato que cambia cómo un modelo de lenguaje percibe la fiabilidad de la marca.</p>
+
+      <p>Concretamente, para el GEO, las reseñas necesitan hacer tres cosas:</p>
+
+      <ul class="checklist">
+        <li><strong>Ser específicas.</strong> "Excelente servicio" no mueve la aguja. "Redujo nuestra tasa de bajas de email un 30% en 60 días" es una afirmación citable dentro de una reseña. Tiene un número y un resultado. La IA puede extraerlo.</li>
+        <li><strong>Estar distribuidas.</strong> Una plataforma con 100 reseñas es más débil que cinco plataformas con 20 reseñas cada una. La amplitud de menciones señala presencia real en distintos contextos.</li>
+        <li><strong>Ser recientes.</strong> Los modelos de IA ponderan la recencia. Las reseñas de 2021 pesan menos que las de este trimestre. Un perfil de reseñas activo le indica al modelo que la marca sigue operando y sigue entregando.</li>
+      </ul>
+
+      <p>La implicación práctica: <strong>pedir reseñas es una estrategia GEO</strong>, no solo una métrica de atención al cliente. Cada reseña específica y rica en datos es una oportunidad de citación — no solo en la plataforma donde vive, sino en cada respuesta de IA que beba de esa plataforma.</p>
+
+      <div class="definition-box">
+        <span class="def-label">Caso real · Brevo</span>
+        <p>Cuando trabajé en la reputación de marca de Brevo, uno de los objetivos centrales fue reconstruir las señales de confianza en plataformas de reseñas — no solo gestionar el feedback negativo, sino crear un flujo sistemático de reseñas específicas y orientadas a resultados de usuarios reales. El resultado: la nota de Brevo pasó de <strong>3,0 a 4,5 estrellas</strong>. Ese cambio no solo mejoró la conversión en comparadores. Cambió cómo los modelos de IA perciben la autoridad de Brevo — porque esas plataformas forman parte de lo que los motores de IA leen para decidir a qué marca citar. Reputación de marca y GEO no son estrategias separadas. Son la misma estrategia, vista desde dos ángulos.</p>
+      </div>
+
+      <h2>La reputación de marca es la base del GEO</h2>
+
+      <p>Esta es la parte que la mayoría de las guías de GEO se saltan. Hablan de datos estructurados y formatos de contenido — y eso importa. Pero <strong>las marcas que la IA cita son, casi sin excepción, las que ya han construido reputación genuina, online y offline</strong>. Presencia consistente. Menciones creíbles. Reseñas específicas. Una identidad clara que se repite en cada canal.</p>
+
+      <p>Puedes optimizar tu schema perfectamente y no ser citado si el modelo no tiene ninguna señal corroboradora de que eres fiable. A la inversa, una marca con fuertes señales de reputación será citada aunque su optimización técnica sea imperfecta. La reputación es el foso. El GEO es el puente que lo hace visible para las máquinas.</p>
+
+      <p>Si la reputación de tu marca no está donde debería, eso es lo primero que hay que corregir — antes de cualquier táctica GEO. Puedo ayudarte con eso. <a href="/es/reputation/" style="color:var(--blue); text-decoration:underline;">Ver cómo trabajo la reputación de marca →</a></p>
+
+      <h2>¿Y el verbo?</h2>
+
+      <p>Esto es lo que nadie menciona: todavía no tenemos un verbo para buscar algo usando IA. "Googleamos" las cosas. Todavía no "ChatGPTeamos" — o al menos, ningún verbo ha ganado. En español la construcción sigue siendo larga: "preguntarle a la IA", "buscarlo en ChatGPT".</p>
+
+      <p>"Googlear" tardó años en consolidarse. El verbo de la IA no existe todavía. Ese vacío dice algo.</p>
+
+      <p>Las marcas que establecen su autoridad ahora — mientras el comportamiento se está formando, antes de que exista el verbo — serán las que el modelo ya habrá aprendido a citar cuando ese verbo llegue.</p>
+
+      <p>El paso del SEO al GEO no es un cambio tecnológico. Es un cambio de confianza. La pregunta antes era: ¿pueden encontrarte? Ahora es: <strong>¿la máquina confía en ti lo suficiente para decir tu nombre?</strong></p>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <span class="cta-label">Auditoría gratis — respuesta en 24h</span>
+        <h2>Reputación de marca + GEO.<br>Descubre dónde estás.</h2>
+        <p>Audito tu visibilidad en IA — ChatGPT, Claude, Perplexity y Google AI Overviews — y tus señales de reputación (reseñas, menciones, consistencia de entidad). Una página. Sin deck. Entregado en menos de 24 horas. Porque en la era de la búsqueda con IA, <strong style="color:var(--yellow);">la reputación es visibilidad.</strong></p>
+        <a href="/es/audit/" class="btn-cta">Obtener mi auditoría gratis →</a>
+      </div>
+
+    </article>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <img src="/assets/images/noelIA-biz-brand-reputation-geo-strategist-paris.png"
+             alt="noelIA.biz — Brand Reputation &amp; GEO Strategist · Paris · EN/FR/ES"
+             height="44" style="display:block; margin-bottom:16px;">
+        <p class="foot-tagline">Estratega de reputación de marca para la era de la búsqueda con IA. París — EN · FR · ES.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="/es/geo/">GEO</a></li>
+          <li><a href="/es/reputation/">Reputación</a></li>
+          <li><a href="/es/method/">Método</a></li>
+          <li><a href="/es/insights/">Insights</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Trabajos</h4>
+        <ul>
+          <li><a href="#">Auditoría Locala ↗</a></li>
+          <li><a href="#">Template de auditoría ↗</a></li>
+          <li><a href="#">Caso Brevo ↗</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Idiomas</h4>
+        <ul>
+          <li><a href="/en/">EN — noelia.biz</a></li>
+          <li><a href="/fr/">FR — noelia.biz/fr</a></li>
+          <li><a href="/es/">ES — noelia.biz/es</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="foot-copy">© 2026 Noelia Santa Ana — Paris, FR</span>
+      <span class="foot-copy">Built to be cited.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
