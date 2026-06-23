@@ -34,8 +34,9 @@ body{font-family:var(--body);font-size:15px;line-height:1.6;color:var(--ink);bac
 .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--grey-1);z-index:100;padding:0 40px}
 .nav-inner{max-width:1000px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;gap:32px}
 .brand-css{display:inline-flex;align-items:baseline;font-family:'Fraunces',Georgia,serif;font-variation-settings:'opsz' 24,'wght' 500;font-size:20px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;flex-shrink:0}
-.brand-css .dot{color:var(--blue)}
-.brand-css .biz{color:var(--ink);font-weight:700;background:var(--yellow);padding:0 5px;border-radius:3px;font-size:16px;margin-left:1px;transform:translateY(-2px);display:inline-block;font-family:'Manrope',system-ui,sans-serif}
+.brand-css .ia,.foot-brand .ia{font-style:italic;color:#2132BD}
+.brand-css .dot{display:inline-block;width:0.15em;height:0.15em;border-radius:50%;background:#2132BD;margin:0 0.06em 0 0.07em;vertical-align:middle}
+.brand-css .biz{color:#111111;font-weight:500;background:#EDDF2D;padding:0.16em 0.2em 0.17em;border-radius:0.17em;font-size:0.66em;margin-left:0;display:inline-flex;align-items:baseline;font-family:'Manrope',system-ui,sans-serif}
 .nav-links{display:flex;align-items:center;gap:28px;flex:1;justify-content:flex-end}
 .nav-links a{font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--grey-5);text-decoration:none;font-family:var(--mono);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -92,7 +93,7 @@ footer{border-top:1px solid var(--grey-1);padding:28px 40px;max-width:1000px;mar
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/es/" class="brand-css">noelia<span class="dot">.</span><span class="biz">biz</span></a>
+    <a href="/es/" class="brand-css">noel<span class="ia">IA</span><span class="dot"></span><span class="biz">biz</span></a>
     <div class="nav-links">
       <a href="#how">C&oacute;mo funciona</a><a href="/es/">Servicios</a><a href="https://noelia.biz/es#about">Sobre m&iacute;</a>
       <div class="lang-sw"><a href="/en/audit/" class="lang-link">EN</a> <a href="/fr/audit/" class="lang-link">FR</a> <span class="lang-link active">ES</span></div>
