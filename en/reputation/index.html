@@ -32,8 +32,9 @@ body{font-family:var(--body);font-size:15px;line-height:1.6;color:var(--ink);bac
 .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--grey-1);z-index:100;padding:0 40px}
 .nav-inner{max-width:1000px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;gap:32px}
 .brand-css{display:inline-flex;align-items:baseline;font-family:'Fraunces',Georgia,serif;font-variation-settings:'opsz' 24,'wght' 500;font-size:20px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;flex-shrink:0}
-.brand-css .dot{color:var(--blue)}
-.brand-css .biz{color:var(--ink);font-weight:700;background:var(--yellow);padding:0 5px;border-radius:3px;font-size:16px;margin-left:1px;transform:translateY(-2px);display:inline-block;font-family:'Manrope',system-ui,sans-serif}
+.brand-css .ia,.foot-brand .ia{font-style:italic;color:#2132BD}
+.brand-css .dot{display:inline-block;width:0.15em;height:0.15em;border-radius:50%;background:#2132BD;margin:0 0.06em 0 0.07em;vertical-align:middle}
+.brand-css .biz{color:#111111;font-weight:500;background:#EDDF2D;padding:0.16em 0.2em 0.17em;border-radius:0.17em;font-size:0.66em;margin-left:0;display:inline-flex;align-items:baseline;font-family:'Manrope',system-ui,sans-serif}
 .nav-links{display:flex;align-items:center;gap:28px;flex:1;justify-content:flex-end}
 .nav-links a{font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--grey-5);text-decoration:none;font-family:var(--mono);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -164,8 +165,8 @@ footer{background:var(--grey-0);padding:64px 0 32px;border-top:1px solid var(--g
 .foot-grid li a{color:var(--grey-7);font-size:14px;text-decoration:none}
 .foot-grid li a:hover{color:var(--ink)}
 .foot-brand{font-family:'Fraunces',Georgia,serif;font-variation-settings:'opsz' 24,'wght' 500;font-size:36px;letter-spacing:-0.03em;color:#111;line-height:1;display:inline-flex;align-items:baseline;margin-bottom:12px}
-.foot-brand .dot{color:var(--blue)}
-.foot-brand .biz{font-family:'Manrope',system-ui,sans-serif !important;font-weight:700 !important;font-size:22px;color:#111;background:#EDDF2D;padding:0 6px;border-radius:4px;display:inline-block;transform:translateY(-2px);margin-left:1px}
+.foot-brand .dot{display:inline-block;width:0.15em;height:0.15em;border-radius:50%;background:#2132BD;margin:0 0.06em 0 0.07em;vertical-align:middle}
+.foot-brand .biz{color:#111111;font-weight:500;background:#EDDF2D;padding:0.16em 0.2em 0.17em;border-radius:0.17em;font-size:0.66em;margin-left:0;display:inline-flex;align-items:baseline;font-family:'Manrope',system-ui,sans-serif;font-variation-settings:normal}
 .foot-tag{font-size:14.5px;color:var(--grey-7);max-width:32ch;line-height:1.5}
 .foot-low{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:28px;font-family:var(--mono);font-size:11px;color:var(--grey-5);letter-spacing:0.1em;text-transform:uppercase}
 .foot-brand-os{text-align:center;padding:16px 0}
@@ -214,7 +215,7 @@ footer{background:var(--grey-0);padding:64px 0 32px;border-top:1px solid var(--g
 <body>
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a href="/en/" class="brand-css">noelia<span class="dot">.</span><span class="biz">biz</span></a>
+    <a href="/en/" class="brand-css">noel<span class="ia">IA</span><span class="dot"></span><span class="biz">biz</span></a>
     <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
       <a href="/en/geo/">GEO</a>
@@ -308,7 +309,7 @@ footer{background:var(--grey-0);padding:64px 0 32px;border-top:1px solid var(--g
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand">noelia<span class="dot">.</span><span class="biz">biz</span></div>
+        <div class="foot-brand">noel<span class="ia">IA</span><span class="dot"></span><span class="biz">biz</span></div>
         <p class="foot-tag">Brand reputation strategist for the age of AI search.
           Paris — EN · FR · ES.</p>
       </div>
