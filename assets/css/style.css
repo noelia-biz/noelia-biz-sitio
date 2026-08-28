@@ -445,3 +445,5 @@ footer{background:var(--paper-2);padding:64px 0 32px;border-top:1px solid var(--
 @media (max-width:600px){.metrics-grid{grid-template-columns:1fr}.compare-header,.compare-row{grid-template-columns:100px 1fr 1fr}}
 @media (max-width:900px){.article-body{grid-template-columns:1fr}.article-sidebar{display:none}.data-row{grid-template-columns:1fr}.foot-inner{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.nav-links{display:none}.article-title{font-size:2.4rem}.cta-block{padding:36px 28px}.foot-inner{grid-template-columns:1fr}}
+.left .step::before{content:none}
+.left .step{display:grid;grid-template-columns:32px 1fr;gap:0 12px;padding:16px 0;border-top:1px solid var(--grey-1);align-items:start}
