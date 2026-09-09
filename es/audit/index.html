@@ -30,15 +30,26 @@
 <body>
 
 <nav class="nav">
-  <div class="nav-inner">
+  <div class="wrap nav-inner">
     <a href="/es/" class="brand-css"><img src="/assets/images/noelIA-biz-brand-reputation-geo-strategist-paris.png" alt="noelIA.biz — Brand Reputation &amp; GEO Strategist · Stratège Réputation de Marque &amp; GEO · Estratega Reputación de Marca &amp; GEO · Paris · English · Français · Español" height="28" style="display:block;"></a>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
-      <a href="#how">C&oacute;mo funciona</a><a href="/es/">Servicios</a><a href="https://noelia.biz/es#about">Sobre m&iacute;</a>
-      <div class="lang-sw"><a href="/en/audit/" class="lang-link">EN</a> <a href="/fr/audit/" class="lang-link">FR</a> <span class="lang-link active">ES</span></div>
-      <a href="/es/" class="btn-nav">Volver al sitio</a>
+      <a href="/es/geo/">GEO</a>
+      <a href="/es/reputation/">Reputaci&oacute;n</a>
+      <a href="/es/#method">M&eacute;todo</a>
+      <a href="/es/insights/">Insights</a>
+      <a href="/es/#about">Sobre m&iacute;</a>
+      <span class="lang"><a href="/en/geo/">EN</a><a href="/fr/geo/">FR</a><b>ES</b></span>
+      <a href="/es/audit/" class="btn btn-primary">Audit gratuito <span class="arr">&#8594;</span></a>
     </div>
   </div>
 </nav>
+<script>
+(function(){
+  var b=document.querySelector('.nav-burger'), n=document.querySelector('.nav-links');
+  if(b&&n){b.addEventListener('click',function(){b.classList.toggle('open');n.classList.toggle('open');});}
+})();
+</script>
 
 <main>
   <div class="page">
@@ -110,8 +121,46 @@
 </main>
 
 <footer>
-  <span class="footer-sig">Noelia</span>
-  <div class="footer-meta">Noelia Santa Ana &middot; hello@noelia.biz &middot; Par&iacute;s</div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="/assets/images/noelIA-biz-brand-reputation-geo-strategist-paris.png" alt="noelIA.biz — Brand Reputation &amp; GEO Strategist · Stratège Réputation de Marque &amp; GEO · Estratega Reputación de Marca &amp; GEO · Paris · English · Français · Español" height="44" style="display:block;"></div>
+        <p class="foot-tag">Estratega de reputaci&oacute;n de marca en la era de la b&uacute;squeda IA.
+          Par&iacute;s &mdash; EN &middot; FR &middot; ES.</p>
+      </div>
+      <div>
+        <h6>Pr&aacute;ctica</h6>
+        <ul>
+          <li><a href="/es/geo/">GEO</a></li>
+          <li><a href="/es/reputation/">Reputaci&oacute;n</a></li>
+          <li><a href="/es/#automation">Automatizaci&oacute;n</a></li>
+          <li><a href="/es/#content">Contenido</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Casos</h6>
+        <ul>
+          <li><a href="https://locala-audit.netlify.app/" target="_blank" rel="noopener">Audit Locala &#8599;</a></li>
+          <li><a href="/es/audit/" target="_blank" rel="noopener">Template audit &#8599;</a></li>
+          <li><a href="/es/#work">Caso Brevo</a></li>
+          <li><a href="/es/insights/">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Idiomas</h6>
+        <ul>
+          <li><a href="/en/">EN &mdash; noelia.biz/en</a></li>
+          <li><a href="/fr/">FR &mdash; noelia.biz/fr</a></li>
+          <li><a href="/es/">ES &mdash; noelia.biz/es</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-brand-os" style="text-align:center;padding:16px 0;border-top:1px solid var(--grey-1);margin-bottom:0;"><a href="/brand-os/" style="font-family:var(--mono);font-size:11px;color:var(--grey-5);letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">Brand OS ↗</a></div>
+    <div class="foot-low">
+      <span>&copy; 2026 Noelia Santa Ana &mdash; Par&iacute;s, FR</span>
+      <span>Construido para ser citado.</span>
+    </div>
+  </div>
 </footer>
 </body>
 </html>
