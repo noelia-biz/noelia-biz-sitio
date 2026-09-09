@@ -1,5 +1,5 @@
 # Netlify redirects
-/           /en/    302
+/           /en/    302!
 /en         /en/    301
 /fr         /fr/    301
 /es         /es/    301
