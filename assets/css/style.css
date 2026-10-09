@@ -448,3 +448,12 @@ footer{background:var(--paper-2);padding:64px 0 32px;border-top:1px solid var(--
 .left .step::before{content:none}
 .left .step{display:grid;grid-template-columns:32px 1fr;gap:0 12px;padding:16px 0;border-top:1px solid var(--grey-1);align-items:start}
 .nav-inner{gap:32px}
+
+/* ===== Thank-you pages (audit) ===== */
+.ty-note{font-size:13px;color:var(--grey-5);margin-top:28px;line-height:1.5}
+.ty-links{list-style:none;margin:8px 0 0;padding:0}
+.ty-links li{border-bottom:1px solid var(--grey-1)}
+.ty-links a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;transition:color .2s}
+.ty-links a:hover{color:var(--blue)}
+.ty-home{margin-top:28px;width:100%;justify-content:center}
+.sig-stack{flex-direction:column;align-items:flex-start;gap:6px}
